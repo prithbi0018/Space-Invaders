@@ -19,7 +19,7 @@ public:
     // Method to move the player
     void move(int direction) {
         // Update player position based on direction
-        position.x += direction * 5; // Adjust movement speed as needed
+        position.x += direction * 5; // Adjust movement speed as neededd
     }
 
     // Method to get player position
