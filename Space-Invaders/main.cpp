@@ -1,50 +1,65 @@
 #include <SFML/Graphics.hpp>
 
-int main()
-{
-    // Create the SFML window
-    sf::RenderWindow window(sf::VideoMode(600, 400), "SFML Shapes Example");
+class Player {
+public:
+    sf::Texture player_texture;
+    sf::Sprite player_sprite;
+    sf::Vector2f position;
 
-    // Create a green circle
-    sf::CircleShape circle(50); // Radius of 50
-    circle.setFillColor(sf::Color::Green);
-    circle.setPosition(100, 100); // Adjust position as needed
+    // Constructor
+    Player() {
+        // Initialize player texture and sprite
+        player_texture.loadFromFile("assets/textures/player_ship.png");
+        player_sprite.setTexture(player_texture);
+        // Set initial position
+        position.x = 400; // Initial x-position
+        position.y = 500; // Initial y-position
+    }
 
-    // Create a red square
-    sf::RectangleShape square(sf::Vector2f(100, 100)); // Width and height of 100
-    square.setFillColor(sf::Color::Red);
-    square.setPosition(250, 100); // Adjust position as needed
+    // Method to move the player
+    void move(int direction) {
+        // Update player position based on direction
+        position.x += direction * 5; // Adjust movement speed as neededd
+    }
 
-    // Create a blue triangle
-    sf::ConvexShape triangle;
-    triangle.setPointCount(3); // Triangle has 3 points
-    triangle.setPoint(0, sf::Vector2f(0, 0)); // First point
-    triangle.setPoint(1, sf::Vector2f(100, 0)); // Second point
-    triangle.setPoint(2, sf::Vector2f(50, 100)); // Third point
-    triangle.setFillColor(sf::Color::Blue);
-    triangle.setPosition(400, 100); // Adjust position as needed
+    // Method to get player position
+    sf::Vector2f getPosition() {
+        return position;
+    }
+};
 
-    // Main loop
-    while (window.isOpen())
-    {
-        // Process events
+int main() {
+    // Game window setup
+    sf::VideoMode vm(800, 600); // Define the video mode
+    sf::RenderWindow window(vm, "SFML Game"); // Create the game window
+
+    // Player setup
+    Player player; // Create a player object
+
+    // Game loop
+    while (window.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close(); // Close the window if close event is detected
+            }
         }
 
-        // Clear the window
-        window.clear();
+        // Handling input and rendering the player ship
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+            player.move(-1); // Move player left
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+            player.move(1); // Move player right
+        }
 
-        // Draw the shapes
-        window.draw(circle);
-        window.draw(square);
-        window.draw(triangle);
+        window.clear(sf::Color::Blue); // Clear the window with blue color
 
-        // Display what has been drawn
-        window.display();
+        // Update player position and draw to screen
+        player.player_sprite.setPosition(player.getPosition());
+        window.draw(player.player_sprite);
+
+        window.display(); // Display the rendered frame
     }
 
     return 0;
