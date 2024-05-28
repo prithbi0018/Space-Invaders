@@ -5,21 +5,17 @@ public:
     sf::Texture player_texture;
     sf::Sprite player_sprite;
     sf::Vector2f position;
+    float move_speed;
 
     // Constructor
     Player() {
-        // Initialize player texture and sprite
-        player_texture.loadFromFile("assets/textures/player_ship.png");
-        player_sprite.setTexture(player_texture);
-        // Set initial position
-        position.x = 400; // Initial x-position
-        position.y = 500; // Initial y-position
+        move_speed = 5.0f; // Set default move speed
     }
 
     // Method to move the player
-    void move(int direction) {
-        // Update player position based on direction
-        position.x += direction * 5; // Adjust movement speed as neededd
+    void move(float direction) {
+        // Update player position based on direction and move speed
+        position.x += direction * move_speed;
     }
 
     // Method to get player position
@@ -29,37 +25,40 @@ public:
 };
 
 int main() {
-    // Game window setup
-    sf::VideoMode vm(800, 600); // Define the video mode
-    sf::RenderWindow window(vm, "SFML Game"); // Create the game window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Game");
 
-    // Player setup
-    Player player; // Create a player object
+    Player player;
+    player.player_texture.loadFromFile("assets/textures/player_ship.png");
+    player.player_sprite.setTexture(player.player_texture);
+    player.position = sf::Vector2f(400.0f, 500.0f); // Set initial position
 
-    // Game loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
-                window.close(); // Close the window if close event is detected
+                window.close();
             }
         }
 
-        // Handling input and rendering the player ship
+        // Handling input and movement
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            player.move(-1); // Move player left
+            player.move(-1.0f); // Move player left
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            player.move(1); // Move player right
+            player.move(1.0f); // Move player right
         }
 
-        window.clear(sf::Color::Blue); // Clear the window with blue color
+        // Clear the window
+        window.clear(sf::Color::Blue);
 
-        // Update player position and draw to screen
+        // Set the player position
         player.player_sprite.setPosition(player.getPosition());
+
+        // Draw the player
         window.draw(player.player_sprite);
 
-        window.display(); // Display the rendered frame
+        // Display what was drawn
+        window.display();
     }
 
     return 0;
