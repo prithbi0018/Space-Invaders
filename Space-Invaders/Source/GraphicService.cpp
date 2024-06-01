@@ -1,12 +1,13 @@
 #include "../Header/GraphicService.h"
-#include "../Header/ServiceLocator.h"
 
 
 // Constructor: Initializes game window and video mode pointers to null.
 GraphicService::GraphicService() {
 	game_window = nullptr; // Initializes game window pointer to null
 	video_mode = nullptr; // Initializes video mode pointer to null
+	servicelocator = nullptr;
 }
+
 GraphicService::GraphicService() : game_window_title("Game Window") {
 	initialize();
 }
@@ -18,7 +19,7 @@ GraphicService ::~GraphicService() {
 void GraphicService::initialize() {
 	setVideoMode();
 	game_window = new sf::RenderWindow(*video_mode, game_window_title);
-	ServiceLocator::setgamewindow(this);
+	//ServiceLocator::setgamewindow(this);
 }
 void GraphicService::update() {
 	
@@ -29,10 +30,8 @@ void GraphicService::render() {
 		
 }
 void GraphicService::onDestroy() {
-	delete game_window;
-	game_window = nullptr;
-	ServiceLocator::remove<GraphicService>(); 
-
+	delete(game_window);
+	delete(video_mode);
 }
 
 bool GraphicService::isGameWindowOpen() {
@@ -87,7 +86,9 @@ void GraphicService::initializeVariables()
 void GraphicService::update() { }
 
 // Placeholder function for game rendering logic.
-void GraphicService::render() { }
+void GraphicService::render() {
+	game_window->clear();
+}
 
 // Checks if the game window is currently open.
 bool GraphicService::isGameWindowOpen() {

@@ -19,15 +19,6 @@ public:
 	void initialize();
 	void update();
 	void render();
-	void setgamewindow();
-	void remove();
-
-
-
-
-
-
-
-
+	GraphicService* GetGraphicService();
 };
 

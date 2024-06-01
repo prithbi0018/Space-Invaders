@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "../Header/ServiceLocator.h"
+
 class GraphicService {
 public:
     const std::string game_window_title;
@@ -27,7 +27,7 @@ public:
     sf::RenderWindow* createGameWindow();
 
 private:
-    ServiceLocator* servicelocator;
+    
     void setVideoMode();
     void onDestroy();
     

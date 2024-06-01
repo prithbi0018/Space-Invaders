@@ -2,6 +2,7 @@
 
 ServiceLocator::ServiceLocator() {
     // Constructor implementation
+    graphicservice = nullptr;
 }
 
 ServiceLocator::~ServiceLocator() {
@@ -22,6 +23,7 @@ ServiceLocator* ServiceLocator::getInstance() {
 
 void ServiceLocator::initialize() {
     // Implementation of initialize
+    graphicservice->initialize();
     return;
 }
 
@@ -32,12 +34,9 @@ void ServiceLocator::update() {
 
 void ServiceLocator::render() {
     // Implementation of render
-    
+    graphicservice->render();
 }
-void ServiceLocator::setgamewindow()
+GraphicService* ServiceLocator::GetGraphicService()
 {
-
-}
-void ServiceLocator::remove() {
-
+    return  graphicservice;
 }

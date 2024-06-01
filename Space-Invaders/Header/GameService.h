@@ -1,8 +1,10 @@
 #pragma once
+#include "../Header/ServiceLocator.h"
 
 
 class GameService {
 private:
+    ServiceLocator* serviceLoctor;
     void initialize();
     void destroy();
 
