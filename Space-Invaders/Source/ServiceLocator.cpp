@@ -34,3 +34,10 @@ void ServiceLocator::render() {
     // Implementation of render
     
 }
+void ServiceLocator::setgamewindow()
+{
+
+}
+void ServiceLocator::remove() {
+
+}
