@@ -32,6 +32,7 @@ void GameService::Ignite() {
 // Public method: update
 void GameService::update() {
     // Update code goes here
+    serviceLoctor->getEventServiceInstance()->processEvents();
 }
 
 // Public method: render
