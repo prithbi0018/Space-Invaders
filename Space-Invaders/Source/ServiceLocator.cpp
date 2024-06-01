@@ -1,42 +1,62 @@
 #include "../Header/ServiceLocator.h"
 
+
+
 ServiceLocator::ServiceLocator() {
-    // Constructor implementation
+    
     graphicservice = nullptr;
+    eventServiceInstance = nullptr;
+    createServices();
 }
 
-ServiceLocator::~ServiceLocator() {
-    // Destructor implementation
-}
+
+
 
 void ServiceLocator::createServices() {
-    // Implementation of creating services
+    
+    graphicservice = new GraphicService();
+    eventServiceInstance = new EventService();
 }
 
 void ServiceLocator::clearAllServices() {
-    // Implementation of clearing all services
+    delete eventServiceInstance;
+    delete graphicservice;
+
 }
 
 ServiceLocator* ServiceLocator::getInstance() {
-    // Implementation of getInstance
+    static ServiceLocator instance;
+    return &instance;
 }
 
+ServiceLocator::~ServiceLocator() {
+    clearAllServices();
+}
+   
+
+EventService* ServiceLocator::getEventServiceInstance() {
+    return eventServiceInstance;
+}
+
+
+
 void ServiceLocator::initialize() {
-    // Implementation of initialize
+    
     graphicservice->initialize();
     return;
 }
 
 void ServiceLocator::update() {
-    // Implementation of update
+    
     return;
 }
 
 void ServiceLocator::render() {
-    // Implementation of render
+    
     graphicservice->render();
 }
 GraphicService* ServiceLocator::GetGraphicService()
 {
     return  graphicservice;
 }
+ 

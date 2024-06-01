@@ -27,6 +27,9 @@
     <ClCompile Include="Source\ServiceLocator.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="EventService.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\ServiceLocator.h">
@@ -36,6 +39,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\GameService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EventService.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
