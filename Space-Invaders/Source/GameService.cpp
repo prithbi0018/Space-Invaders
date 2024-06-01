@@ -1,7 +1,9 @@
 #include "../Header/GameService.h"
+#include "../Header/ServiceLocator.h"
 
 // Constructor
 GameService::GameService() {
+    serviceLoctor = nullptr;
     initialize();
 }
 
@@ -12,12 +14,14 @@ GameService::~GameService() {
 
 // Private method: initialize
 void GameService::initialize() {
+    serviceLoctor = ServiceLocator::getInstance();
     // Initialization code goes here
 }
 
 // Private method: destroy
 void GameService::destroy() {
     // Destruction code goes here
+  
 }
 
 // Public method: Ignite
@@ -38,5 +42,5 @@ void GameService::render() {
 // Public method: isRunning
 bool GameService::isRunning() {
     // Running status code goes here
-    return true; // placeholder return value
+    return serviceLoctor->GetGraphicService()->isGameWindowOpen();
 }
