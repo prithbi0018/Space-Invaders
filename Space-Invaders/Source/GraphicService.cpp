@@ -4,7 +4,7 @@
 // Constructor: Initializes game window and video mode pointers to null.
 GraphicService::GraphicService() {
 	game_window = nullptr; // Initializes game window pointer to null
-	video_mode = nullptr; // Initializes video mode pointer to null
+	video_mode = nullptr; 
 	
 }
 
