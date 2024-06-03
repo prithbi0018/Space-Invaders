@@ -30,6 +30,12 @@
     <ClCompile Include="EventService.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\PlayerService.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TimeService.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\ServiceLocator.h">
@@ -42,6 +48,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="EventService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\PlayerService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\TimeService.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

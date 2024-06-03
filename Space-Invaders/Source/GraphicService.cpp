@@ -5,22 +5,22 @@
 GraphicService::GraphicService() {
 	game_window = nullptr; // Initializes game window pointer to null
 	video_mode = nullptr; // Initializes video mode pointer to null
-	servicelocator = nullptr;
+	//servicelocator = nullptr;
 }
 
-GraphicService::GraphicService() : game_window_title("Game Window") {
-	initialize();
-}
+//GraphicService::GraphicService() : game_window_title("Game Window") {
+//	initialize();
+//}
 GraphicService ::~GraphicService() {
 
 	onDestroy();
 }
 
-void GraphicService::initialize() {
-	setVideoMode();
-	game_window = new sf::RenderWindow(*video_mode, game_window_title);
-	//ServiceLocator::setgamewindow(this);
-}
+//void GraphicService::initialize() {
+//	setVideoMode();
+//	game_window = new sf::RenderWindow(*video_mode, game_window_title);
+//	//ServiceLocator::setgamewindow(this);
+//}
 void GraphicService::update() {
 	
 }
@@ -46,14 +46,14 @@ sf::Color GraphicService::getWindowColor() {
 	return window_color;
 }
 
-void GraphicService::setVideoMode() {
-	video_mode = new sf::VideoMode(game_window_width, game_window_height);
-}
+//void GraphicService::setVideoMode() {
+//	video_mode = new sf::VideoMode(game_window_width, game_window_height);
+//}
 
 // Destructor: Cleans up resources by calling onDestroy.
-GraphicService::~GraphicService() {
-	onDestroy(); // Calls onDestroy method to clean up resources
-}
+//GraphicService::~GraphicService() {
+//	onDestroy(); // Calls onDestroy method to clean up resources
+//}
 
 // Initializes the graphic service by creating a new game window.
 void GraphicService::initialize() {
@@ -72,10 +72,10 @@ void GraphicService::setVideoMode() {
 }
 
 // Cleans up allocated memory for video mode and game window to avoid memory leaks.
-void GraphicService::onDestroy() {
-	delete(video_mode); // Deletes the video mode object
-	delete(game_window); // Deletes the game window object
-}
+//void GraphicService::onDestroy() {
+//	delete(video_mode); // Deletes the video mode object
+//	delete(game_window); // Deletes the game window object
+//}
 void GraphicService::initializeVariables()
 {
 
@@ -83,24 +83,24 @@ void GraphicService::initializeVariables()
 
 
 // Placeholder function for game update logic.
-void GraphicService::update() { }
-
-// Placeholder function for game rendering logic.
-void GraphicService::render() {
-	game_window->clear();
-}
-
-// Checks if the game window is currently open.
-bool GraphicService::isGameWindowOpen() {
-	return game_window->isOpen(); // Returns the open status of the game window
-}
-
-// Returns a pointer to the game window object.
-sf::RenderWindow* GraphicService::getGameWindow() {
-	return game_window;
-}
-
-// Returns the configured window background color.
-sf::Color GraphicService::getWindowColor() {
-	return window_color;
-}
+//void GraphicService::update() { }
+//
+//// Placeholder function for game rendering logic.
+//void GraphicService::render() {
+//	game_window->clear();
+//}
+//
+//// Checks if the game window is currently open.
+//bool GraphicService::isGameWindowOpen() {
+//	return game_window->isOpen(); // Returns the open status of the game window
+//}
+//
+//// Returns a pointer to the game window object.
+//sf::RenderWindow* GraphicService::getGameWindow() {
+//	return game_window;
+//}
+//
+//// Returns the configured window background color.
+//sf::Color GraphicService::getWindowColor() {
+//	return window_color;
+//}
