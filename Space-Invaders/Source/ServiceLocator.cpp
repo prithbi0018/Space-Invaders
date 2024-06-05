@@ -25,7 +25,7 @@ void ServiceLocator::createServices()
     
     graphicservice = new GraphicService();
     eventServiceInstance = new EventService();
-    // Initialize ServiceLocator with EventService
+    
     EventService* eventServiceInstance = new EventService();
     ServiceLocator::getInstance()->provideEventService(eventServiceInstance);
 
@@ -77,4 +77,11 @@ GraphicService* ServiceLocator::GetGraphicService()
 {
     return  graphicservice;
 }
- 
+GraphicService* ServiceLocator::getGraphicService()
+{
+    return graphicservice;
+}
+TimeService* ServiceLocator::getTimeService()
+{
+    return timeServiceInstance;
+}
