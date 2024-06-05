@@ -39,6 +39,12 @@
     <ClCompile Include="Source\PlayerModel.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\PlayerView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PlayerController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\ServiceLocator.h">
@@ -60,6 +66,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\PlayerModel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\PlayerView.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\PlayerController.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

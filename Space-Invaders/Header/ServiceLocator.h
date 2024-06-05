@@ -7,6 +7,8 @@ class ServiceLocator
 {
 private:
 	GraphicService* graphicservice;
+	EventService* eventServiceInstance;
+	TimeService* timeServiceInstance;
 
 	ServiceLocator();
 	~ServiceLocator();
@@ -14,13 +16,10 @@ private:
 
 	void createServices(); 
 	void clearAllServices(); 
-	EventService* eventServiceInstance;
-
 	
 
 
-
-
+	
 	
 
 public:
@@ -31,6 +30,8 @@ public:
 	GraphicService* GetGraphicService();
 	void provideEventService(EventService* eventService);
 	EventService* getEventServiceInstance();
+	GraphicService* getGraphicService();
+	TimeService* getTimeService();
 
 	
 
