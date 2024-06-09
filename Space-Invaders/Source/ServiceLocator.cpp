@@ -1,4 +1,4 @@
-#include "../Header/ServiceLocator.h"
+#include "../Header/Global/ServiceLocator.h"
 
 
 
@@ -85,3 +85,4 @@ TimeService* ServiceLocator::getTimeService()
 {
     return timeServiceInstance;
 }
+  

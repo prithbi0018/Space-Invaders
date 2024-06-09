@@ -1,6 +1,11 @@
-#include "../Space-Invaders/EventService.h"
-#include "../../Header/GameService.h"
-#include "../../Header/ServiceLocator.h"
+#include "../../Header/Event/EventService.h"
+#include "../Header/Main/GameService.h"
+#include "../Header/Global/ServiceLocator.h"
+
+
+namespace Event {
+    using namespace Global;
+}
 
 EventService::EventService () { game_window = nullptr; }
 

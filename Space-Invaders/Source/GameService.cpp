@@ -1,47 +1,35 @@
-#include "../Header/GameService.h"
-#include "../Header/ServiceLocator.h"
 
-// Constructor
-GameService::GameService() {
-    serviceLoctor = nullptr;
+#include "../Header/Main/GameService.h"
+#include "../Header/Global/ServiceLocator.h"
+#include "../Header/Event/EventService.h"
+
+
+main::GameService::GameService() {
+    serviceLocator = nullptr;
     initialize();
 }
 
-// Destructor
-GameService::~GameService() {
+main::GameService::~GameService() {
     destroy();
 }
 
-// Private method: initialize
-void GameService::initialize() {
-    serviceLoctor = ServiceLocator::getInstance();
-    // Initialization code goes here
+void main::GameService::initialize() {
+    serviceLocator = Global::ServiceLocator::getInstance();
 }
 
-// Private method: destroy
-void GameService::destroy() {
-    // Destruction code goes here
-  
+void main::GameService::destroy() {
+}
+    
+void main::GameService::Ignite() {
 }
 
-// Public method: Ignite
-void GameService::Ignite() {
-    // Ignition code goes here
+void main::GameService::update() {
+    serviceLocator->getEventServiceInstance()->processEvents();
 }
 
-// Public method: update
-void GameService::update() {
-    // Update code goes here
-    serviceLoctor->getEventServiceInstance()->processEvents();
+void main::GameService::render() {
 }
 
-// Public method: render
-void GameService::render() {
-    // Render code goes here
-}
-
-// Public method: isRunning
-bool GameService::isRunning() {
-    // Running status code goes here
-    return serviceLoctor->GetGraphicService()->isGameWindowOpen();
+bool main::GameService::isRunning() {
+    return serviceLocator->GetGraphicService()->isGameWindowOpen();
 }

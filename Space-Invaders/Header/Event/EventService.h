@@ -6,12 +6,12 @@
 class EventService
 {
 private:
-	sf::Event game_event; //event var
-	sf::RenderWindow* game_window; //ptr to our game window
+	sf::Event game_event; 
+	sf::RenderWindow* game_window; 
 
 	bool isGameWindowOpen();
-	bool gameWindowWasClosed(); //for the condition we already had - the title bar cross.
-	bool hasQuitGame(); //for our new 'ESC' condition
+	bool gameWindowWasClosed(); 
+	bool hasQuitGame(); 
 
 
 
@@ -21,7 +21,7 @@ public:
 
 	void initialize();
 	void update();
-	void processEvents(); // while window is open we will check for events
+	void processEvents();
 	bool pressedEscapeKey();
 	bool isKeyboardEvent();
 	bool pressedLeftKey();
