@@ -1,6 +1,7 @@
-#include "../Header/PlayerModel.h"
+#include "../Header/Player/PlayerModel.h"
 
-PlayerModel::PlayerModel() {}
+PlayerModel::PlayerModel() : player_alive(false), player_score(0) {}
+
 PlayerModel::~PlayerModel() {}
 
 void PlayerModel::initialize() {}

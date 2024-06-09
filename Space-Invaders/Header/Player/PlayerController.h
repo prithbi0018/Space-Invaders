@@ -1,11 +1,10 @@
 #pragma once
 
 #include<SFML/Graphics.hpp>
-#include"../Header/PlayerModel.h"
-#include"../Header/PlayerView.h"
 
-	
 
+
+class PlayerView;
 class PlayerController
 {
 private:

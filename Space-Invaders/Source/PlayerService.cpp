@@ -1,6 +1,6 @@
-#include "../Header/PlayerService.h"
-#include "../Header/ServiceLocator.h"
-#include "../EventService.h"
+#include "../Header/Player/PlayerService.h"
+#include "../Header/Service/ServiceLocator.h"
+#include "../../Header/Event/EventService.h"
 
 
 

@@ -1,7 +1,8 @@
 #pragma once
-#include "../Header/PlayerController.h"
+
 #include<SFML/Graphics.hpp>
 
+class PlayerController;
 class PlayerView
 {
 private:

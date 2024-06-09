@@ -1,7 +1,7 @@
 #pragma once
-#include "../Header/GraphicService.h"
-#include "../EventService.h"
-#include "../Header/TimeService.h"
+#include "../Graphic/GraphicService.h"
+#include "../Header/Event/EventService.h"
+#include "../Time/TimeService.h"
 
 class ServiceLocator
 {

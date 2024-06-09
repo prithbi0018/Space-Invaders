@@ -1,9 +1,7 @@
-#include "../Header/GraphicService.h"
+#include "../Header/Graphic/GraphicService.h"
 
-
-// Constructor: Initializes game window and video mode pointers to null.
 GraphicService::GraphicService() {
-	game_window = nullptr; // Initializes game window pointer to null
+	game_window = nullptr; 
 	video_mode = nullptr; 
 	
 }
@@ -41,18 +39,18 @@ sf::Color GraphicService::getWindowColor() {
 
 
 void GraphicService::initialize() {
-	game_window = createGameWindow(); // Assigns a new game window to the game_window pointer
+	game_window = createGameWindow(); 
 }
 
-// Creates a new SFML RenderWindow object with specified video mode and title.
+
 sf::RenderWindow* GraphicService::createGameWindow() {
-	setVideoMode(); // Sets up the video mode for the window
-	return new sf::RenderWindow(*video_mode, game_window_title); // Creates and returns a new RenderWindow object
+	setVideoMode(); 
+	return new sf::RenderWindow(*video_mode, game_window_title); 
 }
 
-// Sets up the video mode for the game window using specified dimensions and system's color depth.
+
 void GraphicService::setVideoMode() {
-	video_mode = new sf::VideoMode(game_window_width, game_window_height, sf::VideoMode::getDesktopMode().bitsPerPixel); // Allocates and sets the video mode
+	video_mode = new sf::VideoMode(game_window_width, game_window_height, sf::VideoMode::getDesktopMode().bitsPerPixel); 
 }
 
 
