@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "../Global/ServiceLocator.h" 
 
-namespace main {
+namespace Main {
 
     enum class GameState {
         BOOT,

@@ -4,7 +4,7 @@
 #include "../../Header/Main/GameService.h"
 #include "../../Header/Graphic/GraphicService.h"
 #include "../../Header/Event/EventService.h"
-namespace main { 
+namespace Main { 
 
     using namespace Global;
 
