@@ -20,15 +20,15 @@ public:
     void render();
     bool isGameWindowOpen();
     void initializeVariables();
-    
+
 
     sf::RenderWindow* getGameWindow();
     sf::Color getWindowColor();
     sf::RenderWindow* createGameWindow();
 
 private:
-    
+
     void setVideoMode();
     void onDestroy();
-    
+
 };

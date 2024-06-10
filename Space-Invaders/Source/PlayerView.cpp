@@ -10,7 +10,7 @@ PlayerView::~PlayerView() {}
 
 void PlayerView::initialize(PlayerController* _playerController) {
     playercontroller = _playerController;
-    game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+    game_window = Global::ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
     initializePlayerSprite();
 }
 

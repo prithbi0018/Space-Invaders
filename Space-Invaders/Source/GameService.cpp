@@ -1,35 +1,43 @@
 
 #include "../Header/Main/GameService.h"
 #include "../Header/Global/ServiceLocator.h"
-#include "../Header/Event/EventService.h"
+
+namespace main { 
+    GameService::GameService() : serviceLocator(nullptr), gameWindow(nullptr) {
+        initialize();
+    }
+
+    GameService::~GameService() {
+        destroy();
+    }
+
+    void GameService::initialize() {
+        serviceLocator = Global::ServiceLocator::getInstance();
+
+        GraphicService* graphicService = serviceLocator->GetGraphicService();
+        if (graphicService) {
+            gameWindow = graphicService->getGameWindow();
+        }
+    }
 
 
-main::GameService::GameService() {
-    serviceLocator = nullptr;
-    initialize();
-}
+    void GameService::destroy() {
 
-main::GameService::~GameService() {
-    destroy();
-}
+    }
 
-void main::GameService::initialize() {
-    serviceLocator = Global::ServiceLocator::getInstance();
-}
+    void GameService::Ignite() {
 
-void main::GameService::destroy() {
-}
-    
-void main::GameService::Ignite() {
-}
+    }
 
-void main::GameService::update() {
-    serviceLocator->getEventServiceInstance()->processEvents();
-}
+    void GameService::update() {
+        serviceLocator->getEventServiceInstance()->processEvents();
+    }
 
-void main::GameService::render() {
-}
+    void GameService::render() {
 
-bool main::GameService::isRunning() {
-    return serviceLocator->GetGraphicService()->isGameWindowOpen();
+    }
+
+    bool GameService::isRunning() {
+        return gameWindow && gameWindow->isOpen();
+    }
 }

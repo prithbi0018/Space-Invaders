@@ -1,32 +1,32 @@
 #include "../Header/Graphic/GraphicService.h"
 
 GraphicService::GraphicService() {
-	game_window = nullptr; 
-	video_mode = nullptr; 
-	
+	game_window = nullptr;
+	video_mode = nullptr;
 }
 
 GraphicService ::~GraphicService() {
-
 	onDestroy();
 }
 
-
 void GraphicService::update() {
-	
+
 }
+
 void GraphicService::render() {
-	game_window->clear(window_color);
-	game_window->display();
-		
+	if (game_window) {
+		game_window->clear(window_color);
+		game_window->display();
+	}
 }
+
 void GraphicService::onDestroy() {
-	delete(game_window);
-	delete(video_mode);
+	delete game_window;
+	delete video_mode;
 }
 
 bool GraphicService::isGameWindowOpen() {
-	return game_window->isOpen();
+	return game_window && game_window->isOpen();
 }
 
 sf::RenderWindow* GraphicService::getGameWindow() {
@@ -37,25 +37,22 @@ sf::Color GraphicService::getWindowColor() {
 	return window_color;
 }
 
-
 void GraphicService::initialize() {
-	game_window = createGameWindow(); 
+	game_window = createGameWindow();
 }
-
 
 sf::RenderWindow* GraphicService::createGameWindow() {
-	setVideoMode(); 
-	return new sf::RenderWindow(*video_mode, game_window_title); 
+	setVideoMode();
+	if (video_mode) {
+		return new sf::RenderWindow(*video_mode, game_window_title);
+	}
+	return nullptr;
 }
-
 
 void GraphicService::setVideoMode() {
-	video_mode = new sf::VideoMode(game_window_width, game_window_height, sf::VideoMode::getDesktopMode().bitsPerPixel); 
+	video_mode = new sf::VideoMode(game_window_width, game_window_height, sf::VideoMode::getDesktopMode().bitsPerPixel);
 }
 
-
-void GraphicService::initializeVariables()
-{
-
+void GraphicService::initializeVariables() {
+	
 }
-
