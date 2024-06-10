@@ -1,77 +1,73 @@
-
 #include "../Header/Global/ServiceLocator.h"
 
-namespace Global { 
+namespace Global {
 
-	ServiceLocator::ServiceLocator()
-	{
-		graphicservice = nullptr;
-		eventServiceInstance = nullptr;
+    ServiceLocator::ServiceLocator()
+        : graphicservice(nullptr), eventServiceInstance(nullptr), timeServiceInstance(nullptr), uiServiceInstance(nullptr)
+    {
+        createServices();
+    }
 
-		createServices();
-	}
+    void ServiceLocator::provideEventService(EventService* eventService) {
+        eventServiceInstance = eventService;
+    }
 
-	void ServiceLocator::provideEventService(EventService* eventService) {
-		eventServiceInstance = eventService;
-	}
+    EventService* ServiceLocator::getEventServiceInstance() {
+        return eventServiceInstance;
+    }
 
-	EventService* ServiceLocator::getEventServiceInstance()
-	{
-		return eventServiceInstance;
-	}
+    void ServiceLocator::createServices() {
+        graphicservice = new GraphicService();
+        eventServiceInstance = new EventService();
+        timeServiceInstance = new TimeService();
+    }
 
-	void ServiceLocator::createServices()
-	{
-		graphicservice = new GraphicService();
-		eventServiceInstance = new EventService();
+    void ServiceLocator::clearAllServices() {
+        delete eventServiceInstance;
+        delete graphicservice;
+        delete timeServiceInstance;
+        delete uiServiceInstance;
+    }
 
-	}
+    ServiceLocator* ServiceLocator::getInstance() {
+        static ServiceLocator instance;
+        return &instance;
+    }
 
-	void ServiceLocator::clearAllServices()
-	{
-		delete eventServiceInstance;
-		delete graphicservice;
+    ServiceLocator::~ServiceLocator() {
+        clearAllServices();
+    }
 
-	}
+    void ServiceLocator::initialize() {
+        graphicservice->initialize();
+    }
 
-	ServiceLocator* ServiceLocator::getInstance()
-	{
-		static ServiceLocator instance;
-		return &instance;
-	}
+    void ServiceLocator::update() {
+       
+    }
 
-	ServiceLocator::~ServiceLocator()
-	{
-		clearAllServices();
-	}
+    void ServiceLocator::render() {
+        graphicservice->render();
+    }
 
-	void ServiceLocator::initialize()
-	{
-		graphicservice->initialize();
-	}
+    GraphicService* ServiceLocator::GetGraphicService() {
+        return graphicservice;
+    }
 
-	void ServiceLocator::update()
-	{
+    GraphicService* ServiceLocator::getGraphicService() {
+        return graphicservice;
+    }
 
-	}
+    TimeService* ServiceLocator::getTimeService() {
+        return timeServiceInstance;
+    }
 
-	void ServiceLocator::render()
-	{
-		graphicservice->render();
-	}
+    
+    void ServiceLocator::provideUIService(UI::UIService* uiService) {
+        uiServiceInstance = uiService;
+    }
 
-	GraphicService* ServiceLocator::GetGraphicService()
-	{
-		return graphicservice;
-	}
-
-	GraphicService* ServiceLocator::getGraphicService()
-	{
-		return graphicservice;
-	}
-
-	TimeService* ServiceLocator::getTimeService()
-	{
-		return timeServiceInstance;
-	}
+    UI::UIService* ServiceLocator::getUIService() {
+        return uiServiceInstance;
+    }
 }
