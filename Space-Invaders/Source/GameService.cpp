@@ -1,8 +1,15 @@
 
 #include "../Header/Main/GameService.h"
 #include "../Header/Global/ServiceLocator.h"
-
+#include "../../Header/Main/GameService.h"
+#include "../../Header/Graphic/GraphicService.h"
+#include "../../Header/Event/EventService.h"
 namespace main { 
+
+    using namespace Global;
+
+    GameState GameService::current_state = GameState::BOOT;
+
     GameService::GameService() : serviceLocator(nullptr), gameWindow(nullptr) {
         initialize();
     }
@@ -12,7 +19,7 @@ namespace main {
     }
 
     void GameService::initialize() {
-        serviceLocator = Global::ServiceLocator::getInstance();
+        serviceLocator = ServiceLocator::getInstance();
 
         GraphicService* graphicService = serviceLocator->GetGraphicService();
         if (graphicService) {
@@ -40,4 +47,16 @@ namespace main {
     bool GameService::isRunning() {
         return gameWindow && gameWindow->isOpen();
     }
+    void GameService::setGameState(GameState new_state) {
+        current_state = new_state;
+    }
+
+    GameState GameService::getGameState() {
+        return current_state;
+    }
+   
+
+    
+    
+
 }
