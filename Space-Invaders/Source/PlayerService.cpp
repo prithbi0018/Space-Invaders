@@ -1,5 +1,5 @@
 #include "../Header/Player/PlayerService.h"
-#include "../Header/Service/ServiceLocator.h"
+#include"../Header/Global/ServiceLocator.h"
 #include "../../Header/Event/EventService.h"
 
 
@@ -25,7 +25,7 @@ void PlayerService::render() {
 }
 
 void PlayerService::processPlayerInput() {
-    EventService* event_service = ServiceLocator::getInstance()->getEventServiceInstance();
+    EventService* event_service = Global::ServiceLocator::getInstance()->getEventServiceInstance();
 
     if (event_service->isKeyboardEvent()) {
         if (event_service->pressedLeftKey()) {

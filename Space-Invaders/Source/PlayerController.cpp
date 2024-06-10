@@ -55,7 +55,7 @@ void PlayerController::processPlayerInput()
 void PlayerController::moveLeft()
 {
     sf::Vector2f currentPosition = player_model->getPlayerPosition();
-    currentPosition.x -= player_model->player_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+    currentPosition.x -= player_model->player_movement_speed * Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
     currentPosition.x = std::max(currentPosition.x, player_model->left_most_position.x);
     player_model->setPlayerPosition(currentPosition);
 }
@@ -63,7 +63,7 @@ void PlayerController::moveLeft()
 void PlayerController::moveRight()
 {
     sf::Vector2f currentPosition = player_model->getPlayerPosition();
-    currentPosition.x += player_model->player_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+    currentPosition.x += player_model->player_movement_speed * Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
     currentPosition.x = std::min(currentPosition.x, player_model->right_most_position.x);
     player_model->setPlayerPosition(currentPosition);
 }

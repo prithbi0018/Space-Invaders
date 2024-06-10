@@ -2,8 +2,8 @@
 #include<SFML/Graphics.hpp>
 
 
-class PlayerView {};
-class Playercontrollor {};
+class PlayerView;
+class Playercontrollor;
 
 class PlayerModel
 {
