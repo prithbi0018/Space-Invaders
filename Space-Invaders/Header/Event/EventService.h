@@ -3,6 +3,12 @@
 #include <SFML/Window/Event.hpp>
 namespace Event
 {
+	enum class ButtonState
+	{
+		PRESSED,
+		HELD,
+		RELEASED,
+	};
 	class EventService
 	{
 	private:
@@ -14,6 +20,19 @@ namespace Event
 		bool hasQuitGame();
 		bool pressedLeftMouseButton();
 		bool pressedRightMouseButton();
+
+		ButtonState left_mouse_button_state;
+		ButtonState right_mouse_button_state;
+		ButtonState left_arrow_button_state;
+		ButtonState right_arrow_button_state;
+		ButtonState A_button_state;
+		ButtonState D_button_state;
+
+		void updateMouseButtonsState(ButtonState& current_button_state, sf::Mouse::Button mouse_button);
+		void updateKeyboardButtonsState(ButtonState& current_button_state, sf::Keyboard::Key keyboard_button);
+
+
+
 
 
 
@@ -28,6 +47,9 @@ namespace Event
 		bool isKeyboardEvent();
 		bool pressedLeftKey();
 		bool pressedRightKey();
+
+		bool pressedAKey();
+		bool pressedDKey();
 
 
 	};
