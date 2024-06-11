@@ -19,6 +19,7 @@ namespace Main {
 
         void initialize();
         void destroy();
+        void showMainMenu();
 
     public:
         GameService();

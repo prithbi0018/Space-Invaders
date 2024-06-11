@@ -50,6 +50,16 @@ namespace Main {
     void GameService::setGameState(GameState new_state) {
         current_state = new_state;
     }
+    void GameService::showMainMenu()
+    {
+        setGameState(GameState::MAIN_MENU);
+    }
+    void GameService::initialize()
+    {
+        service_locator->initialize();
+        initializeVariables();
+        showMainMenu(); 
+    }
 
     GameState GameService::getGameState() {
         return current_state;

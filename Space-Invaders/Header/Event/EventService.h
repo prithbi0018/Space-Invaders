@@ -12,6 +12,8 @@ namespace Event
 		bool isGameWindowOpen();
 		bool gameWindowWasClosed();
 		bool hasQuitGame();
+		bool pressedLeftMouseButton();
+		bool pressedRightMouseButton();
 
 
 
