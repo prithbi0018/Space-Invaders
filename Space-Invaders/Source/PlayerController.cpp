@@ -67,3 +67,18 @@ void PlayerController::moveRight()
     currentPosition.x = std::min(currentPosition.x, player_model->right_most_position.x);
     player_model->setPlayerPosition(currentPosition);
 }
+
+void PlayerController::processPlayerInput()
+{
+    EventService* event_service = ::ServiceLocator::getInstance()->getEventService();
+
+    if (event_service->pressedLeftKey() || event_service->pressedAKey())
+    {
+        moveLeft();
+    }
+
+    if (event_service->pressedRightKey() || event_service->pressedDKey())
+    {
+        moveRight();
+    }
+}
