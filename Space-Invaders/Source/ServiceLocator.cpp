@@ -1,9 +1,14 @@
 #include "../Header/Global/ServiceLocator.h"
+#include "../Header/Main/GameService.h"
+#include "../Header/Event/EventService.h"
+#include "../Header/Graphic/GraphicService.h"
+
 
 namespace Global {
+    using namespace Main;
 
     ServiceLocator::ServiceLocator()
-        : graphicservice(nullptr), eventServiceInstance(nullptr), timeServiceInstance(nullptr), uiServiceInstance(nullptr)
+        : graphicservice(nullptr), eventServiceInstance(nullptr), timeServiceInstance(nullptr), uiServiceInstance(nullptr),playerservice(nullptr),enemyservice(nullptr)
     {
         createServices();
     }
@@ -42,17 +47,33 @@ namespace Global {
         graphicservice->initialize();
     }
 
-    void ServiceLocator::update() {
-       
+    void ServiceLocator::update()
+    {
+        graphic_service->update();
+        time_service->update();
+        event_service->update();
+        if (GameService::getGameState() == GameState::GAMEPLAY)
+        {
+            player_service->update();
+            enemy_service->update();
+        }
+
+        ui_service->update();   
     }
 
-    void ServiceLocator::render() {
+    void ServiceLocator::render() 
+    {
         graphicservice->render();
+        if (GameService::getGameState() == GameState::GAMEPLAY)
+        {
+            player_service->render();
+            enemy_service->render();
+        }
         ui_service->render();
-        player_service->render();
+
 
     }
-
+ 
     GraphicService* ServiceLocator::GetGraphicService() {
         return graphicservice;
     }

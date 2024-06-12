@@ -45,6 +45,24 @@
     <ClCompile Include="Source\PlayerController.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\MainMenuController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIService.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnemyService.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnemyController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnemyModel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnemyView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -72,6 +90,24 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\Player\PlayerController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\UI\MainMenuController\MainMenuController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\UI\UIService\UIService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Enemy\EnemyService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Enemy\EnemyController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Enemy\EnemyModel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Enemy\EnemyView.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
