@@ -98,8 +98,16 @@ namespace Enemy
 			}
 			else enemy_model->setEnemyPosition(currentPosition);
 
-	sf::Vector2f EnemyController::getEnemyPosition()
-	{
-		return enemy_model->getEnemyPosition();
-	}
+				sf::Vector2f EnemyController::getEnemyPosition()
+				{
+					return enemy_model->getEnemyPosition();
+				}
+				EnemyController* EnemyService::spawnEnemy()
+				{
+					//creates and intis an enemy controller
+					enemy = new EnemyController();
+					enemy->initialize();
+
+					return enemy;
+				}
 }

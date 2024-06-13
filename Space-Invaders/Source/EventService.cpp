@@ -1,9 +1,11 @@
 #include "../../Header/Event/EventService.h"
 #include "../Header/Global/ServiceLocator.h"
 
+
 namespace Event {
     using namespace Global;
     using namespace Event;
+   
 
 
     EventService::EventService() : game_window(nullptr), game_event() {
@@ -29,6 +31,7 @@ namespace Event {
        
 
     }
+
 
     void EventService::processEvents() {
         if (isGameWindowOpen()) {
@@ -125,5 +128,6 @@ namespace Event {
         
         return game_event.type == sf::Event::MouseButtonPressed && game_event.mouseButton.button == sf::Mouse::Right;
     }
+
 
 }

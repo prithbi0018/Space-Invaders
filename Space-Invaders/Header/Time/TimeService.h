@@ -1,24 +1,30 @@
 #pragma once
 #include<chrono>
 
-class TimeService
+
+namespace Time
 {
-private:
-	std::chrono::time_point<std::chrono::steady_clock> previous_time;
-	float delta_time;
+	class TimeService
+	{
 
-	void updateDeltaTime(); 
-	float calculateDeltaTime(); 
-	void updatePreviousTime(); 
+	private:
+		std::chrono::time_point<std::chrono::steady_clock> previous_time;
+		float delta_time;
 
-public:
+		void updateDeltaTime();
+		float calculateDeltaTime();
+		void updatePreviousTime();
 
-	void initialize();
-	void update();
-	float getDeltaTime();
+	public:
+
+		void initialize();
+		void update();
+		float getDeltaTime();
 
 
 
 
 
-};
+	};
+
+}
