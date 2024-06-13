@@ -4,8 +4,11 @@
 #include "../Header/Event/EventService.h"
 #include "../Time/TimeService.h"
 #include "../UI/UIService/UIService.h"
+#include "../Gameplay/GameplayService.h"
+
 
 namespace Global {
+    class UIService;
     class ServiceLocator {
     private:
         GraphicService* graphicservice;
@@ -30,6 +33,7 @@ namespace Global {
         EventService* getEventServiceInstance();
         GraphicService* getGraphicService();
         TimeService* getTimeService();
+        GameplayService* getGameplayService();
 
         
         void provideUIService(UI::UIService* uiService);

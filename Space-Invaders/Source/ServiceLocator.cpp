@@ -8,7 +8,8 @@ namespace Global {
     using namespace Main;
 
     ServiceLocator::ServiceLocator()
-        : graphicservice(nullptr), eventServiceInstance(nullptr), timeServiceInstance(nullptr), uiServiceInstance(nullptr),playerservice(nullptr),enemyservice(nullptr)
+        : graphicservice(nullptr), eventServiceInstance(nullptr), timeServiceInstance(nullptr), uiServiceInstance(nullptr),playerservice(nullptr),enemyservice(nullptr), gameplayServiceInstance(nullptr);
+
     {
         createServices();
     }
@@ -25,6 +26,7 @@ namespace Global {
         graphicservice = new GraphicService();
         eventServiceInstance = new EventService();
         timeServiceInstance = new TimeService();
+        gameplayServiceInstance = new GameplayService();
     }
 
     void ServiceLocator::clearAllServices() {
@@ -32,6 +34,7 @@ namespace Global {
         delete graphicservice;
         delete timeServiceInstance;
         delete uiServiceInstance;
+        delete gameplayServiceInstance;
     }
 
     ServiceLocator* ServiceLocator::getInstance() {
@@ -93,5 +96,9 @@ namespace Global {
 
     UI::UIService* ServiceLocator::getUIService() {
         return uiServiceInstance;
+    }
+    GameplayService* ServiceLocator::getGameplayService()
+    {
+        return gameplayServiceInstance;
     }
 }
