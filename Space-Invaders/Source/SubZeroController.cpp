@@ -1,40 +1,41 @@
 #include "../Header/Enemy/Controller/SubZeroController.h"
+#include "../../Header/Enemy/EnemyModel.h"
+#include "../Header/Enemy/EnemConfig.h"
+#include "../../Header/Global/ServiceLocator.h"
 
 namespace Enemy
 {
-    namespace Controller
-    {
-        // Constructor implementation
-        SubzeroController::SubzeroController()
-        {
-            // Initialization code for SubzeroController if needed
-        }
 
-        // Destructor implementation
-        SubzeroController::~SubzeroController()
-        {
-            // Cleanup code for SubzeroController if needed
-        }
+	using namespace Global;
 
-        // Override the initialize method
-        void SubzeroController::initialize()
-        {
-            // Initialization code specific to SubzeroController
-            // For example, setting initial position, state, etc.
-        }
+	namespace Controller
+	{
+		SubzeroController::SubzeroController(EnemyType type) : EnemyController(type) { }
 
-        // Override the move method
-        void SubzeroController::move()
-        {
-            // Movement code specific to SubzeroController
-            // This could include logic to move in different directions based on conditions
-            moveDown(); // Example call to moveDown method
-        }
+		SubzeroController::~SubzeroController() { }
 
-        // Method to specify downward movement
-        void SubzeroController::moveDown()
-        {
-            // Code to move the enemy down
-            // For example: changing the y-coordinate by vertical_movement_speed
-            sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-            current
+		void SubzeroController::initialize()
+		{
+			EnemyController::initialize();
+			enemy_model->setMovementDirection(MovementDirection::DOWN);
+		}
+
+		void SubzeroController::move()
+		{
+			switch (enemy_model->getMovementDirection())
+			{
+			case::Enemy::MovementDirection::DOWN:
+				moveDown();
+				break;
+			}
+		}
+
+		void SubzeroController::moveDown()
+		{
+			sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
+			currentPosition.y += vertical_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
+			enemy_model->setEnemyPosition(currentPosition);
+		}
+	}
+}
