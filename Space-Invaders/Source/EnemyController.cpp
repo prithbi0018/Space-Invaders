@@ -123,6 +123,9 @@ namespace Enemy
         EnemyController* enemy = new EnemyController();
         enemy->initialize();
 
-        return enemy;
+        enemy_list.push_back(enemy_controller);
+
+        return enemy_controller;
+        return enemy_controller;
     }
 }
