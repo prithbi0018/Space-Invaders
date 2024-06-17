@@ -22,6 +22,7 @@ namespace Enemy
 		updateSpawnTimer();
 		processEnemySpawn();
 
+
 		for (int i = 0; i < enemy_list.size(); i++) enemy_list[i]->update();
 	}
 
