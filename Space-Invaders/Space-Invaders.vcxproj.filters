@@ -72,6 +72,15 @@
     <ClCompile Include="Source\GameplayView.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\SubZeroController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ZapperComtroller.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EnemyConfig.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -126,6 +135,15 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\Gameplay\gameplayView.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Enemy\Controller\SubZeroController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Enemy\Controller\ZapperController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Enemy\EnemConfig.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
