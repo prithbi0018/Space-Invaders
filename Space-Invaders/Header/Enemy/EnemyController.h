@@ -10,25 +10,23 @@ namespace Enemy
     class EnemyController
     {
     private:
-
         EnemyView* enemy_view;
         EnemyModel* enemy_model;
 
-        void move();
+        virtual void move() = 0; // Pure virtual function
+
         void moveLeft();
         void moveRight();
         void moveDown();
 
-
     public:
         EnemyController();
-        ~EnemyController();
+        virtual ~EnemyController();
 
-        void initialize();
+        virtual void initialize() = 0; // Pure virtual function
         void update();
         void render();
 
         sf::Vector2f getEnemyPosition();
     };
 }
-
