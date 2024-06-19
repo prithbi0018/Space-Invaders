@@ -81,6 +81,18 @@
     <ClCompile Include="Source\EnemyConfig.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ElementService.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BunkerView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BunkerModel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BunkerController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -144,6 +156,18 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\Enemy\EnemConfig.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Element\ElementService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Element\Bumker\BunkerView.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Element\Bumker\BunkerModel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Element\Bumker\BunkerController.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

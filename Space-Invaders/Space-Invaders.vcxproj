@@ -132,6 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\BunkerController.cpp" />
+    <ClCompile Include="Source\BunkerModel.cpp" />
+    <ClCompile Include="Source\BunkerView.cpp" />
+    <ClCompile Include="Source\ElementService.cpp" />
     <ClCompile Include="Source\EnemyConfig.cpp" />
     <ClCompile Include="Source\EnemyController.cpp" />
     <ClCompile Include="Source\EnemyModel.cpp" />
@@ -156,6 +160,10 @@
     <ClCompile Include="Source\ZapperComtroller.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\Element\Bumker\BunkerController.h" />
+    <ClInclude Include="Header\Element\Bumker\BunkerModel.h" />
+    <ClInclude Include="Header\Element\Bumker\BunkerView.h" />
+    <ClInclude Include="Header\Element\ElementService.h" />
     <ClInclude Include="Header\Enemy\Controller\SubZeroController.h" />
     <ClInclude Include="Header\Enemy\Controller\ZapperController.h" />
     <ClInclude Include="Header\Enemy\EnemConfig.h" />
