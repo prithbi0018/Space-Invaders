@@ -2,23 +2,13 @@
 
 namespace Element
 {
-    namespace Bunker
-    {
-        BunkerModel::BunkerModel()
-        {
-           
-        }
+	namespace Bunker
+	{
+		BunkerData::BunkerData() { };
 
-        BunkerModel::~BunkerModel()
-        {
-          
-        }
-
-        void BunkerModel::initialize()
-        {
-            
-        }
-
-       
-    }
+		BunkerData::BunkerData(sf::Vector2f position)
+		{
+			this->position = position;
+		}
+	}
 }
