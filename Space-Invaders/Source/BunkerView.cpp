@@ -1,32 +1,52 @@
-#include "../Header/Element/Bumker/BunkerView.h"
+#include "../Header/Element/Bumker/BunkerModel.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../Header/Element/Bumker/BunkerController.h"
 
 namespace Element
 {
-    namespace Bunker
-    {
-        BunkerView::BunkerView()
-        {
-          
-        }
+	namespace Bunker
+	{
+		using namespace Global;
 
-        BunkerView::~BunkerView()
-        {
-          
-        }
+		BunkerView::BunkerView() { }
 
-        void BunkerView::initialize()
-        {
-            
-        }
+		BunkerView::~BunkerView() { }
 
-        void BunkerView::update()
-        {
-           
-        }
+		void BunkerView::initialize(BunkerController* controller)
+		{
+			bunker_controller = controller;
+			game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+			initializeImage();
+		}
 
-        void BunkerView::render()
-        {
-           
-        }
-    }
+		void BunkerView::initializeImage()
+		{
+			if (bunker_texture.loadFromFile(bunker_texture_path))
+			{
+				bunker_sprite.setTexture(bunker_texture);
+				scaleSprite();
+			}
+		}
+
+
+		void BunkerView::scaleSprite()
+		{
+			bunker_sprite.setScale(
+				static_cast<float>(bunker_sprite_width) / bunker_sprite.getTexture()->getSize().x,
+				static_cast<float>(bunker_sprite_height) / bunker_sprite.getTexture()->getSize().y
+			);
+		}
+
+
+		void BunkerView::update()
+		{
+			bunker_sprite.setPosition(bunker_controller->getBunkerPosition());
+		}
+
+		void BunkerView::render()
+		{
+			game_window->draw(bunker_sprite);
+		}
+
+	}
 }
