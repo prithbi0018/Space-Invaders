@@ -135,6 +135,7 @@
     <ClCompile Include="Source\BunkerController.cpp" />
     <ClCompile Include="Source\BunkerModel.cpp" />
     <ClCompile Include="Source\BunkerView.cpp" />
+    <ClCompile Include="Source\Config.cpp" />
     <ClCompile Include="Source\ElementService.cpp" />
     <ClCompile Include="Source\EnemyConfig.cpp" />
     <ClCompile Include="Source\EnemyController.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Header\Gameplay\Gameplaycontrolller.h" />
     <ClInclude Include="Header\Gameplay\GameplayService.h" />
     <ClInclude Include="Header\Gameplay\gameplayView.h" />
+    <ClInclude Include="Header\Global\Config.h" />
     <ClInclude Include="Header\Main\GameService.h" />
     <ClInclude Include="Header\Graphic\GraphicService.h" />
     <ClInclude Include="Header\Player\PlayerController.h" />
