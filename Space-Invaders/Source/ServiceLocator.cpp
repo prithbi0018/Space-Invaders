@@ -2,13 +2,14 @@
 #include "../Header/Main/GameService.h"
 #include "../Header/Event/EventService.h"
 #include "../Header/Graphic/GraphicService.h"
+#include"../Header/Element/ElementService.h"
 
 
 namespace Global {
     using namespace Main;
 
     ServiceLocator::ServiceLocator()
-        : graphicservice(nullptr), eventServiceInstance(nullptr), timeServiceInstance(nullptr), uiServiceInstance(nullptr),playerservice(nullptr),enemyservice(nullptr), gameplayServiceInstance(nullptr);
+        : graphicservice(nullptr), eventServiceInstance(nullptr), timeServiceInstance(nullptr), uiServiceInstance(nullptr),playerservice(nullptr),enemyservice(nullptr), gameplayServiceInstance(nullptr);ServiceLocatorinstance(nullptr);
 
     {
         createServices();

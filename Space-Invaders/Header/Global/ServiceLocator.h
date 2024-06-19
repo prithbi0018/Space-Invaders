@@ -9,6 +9,7 @@
 
 namespace Global {
     class UIService;
+    class ElementService;
     class ServiceLocator {
     private:
         GraphicService* graphicservice;
@@ -21,6 +22,10 @@ namespace Global {
 
         void createServices();
         void clearAllServices();
+
+        static ServiceLocator* instance;
+        std::unique_ptr<ElementService> elementService;
+
 
     public:
         static ServiceLocator* getInstance();
@@ -38,5 +43,16 @@ namespace Global {
         
         void provideUIService(UI::UIService* uiService);
         UI::UIService* getUIService();
+
+        void provide(ElementService* service)
+        {
+            elementService.reset(service);
+        }
+
+        ElementService* getElementService()
+        {
+            return elementService.get();
+        }
+
     };
 }
