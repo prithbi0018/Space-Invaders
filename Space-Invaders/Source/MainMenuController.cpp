@@ -25,6 +25,25 @@ namespace UI
             initializeButtons();
             
         }
+        void MainMenuUIController::processButtonInteractions()
+        {
+            sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
+
+            if (clickedButton(&play_button_sprite, mouse_position))
+            {
+                ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK); 
+                ServiceLocator::getInstance()->getSoundService()->playBackgroundMusic(); 
+                GameService::setGameState(GameState::GAMEPLAY);
+            }
+
+            if (clickedButton(&instructions_button_sprite, mouse_position))
+            {
+                printf("Clicked Instruction Button \n");
+            }
+
+            if (clickedButton(&quit_button_sprite, mouse_position))
+                game_window->close();
+        }
 
         void MainMenuController::initializeBaclgroundImage()
 
