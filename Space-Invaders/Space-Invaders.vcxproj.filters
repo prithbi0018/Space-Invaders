@@ -105,6 +105,18 @@
     <ClCompile Include="Source\BulletService.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BulletConfig.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BulletController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BulletModel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BulletView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -192,6 +204,18 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\Bullet\BulletService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Bullet\BulletConfig.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Bullet\BulletController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Bullet\BulletModel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Bullet\BulletView.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
