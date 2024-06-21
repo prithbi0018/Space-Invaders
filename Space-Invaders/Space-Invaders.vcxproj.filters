@@ -99,6 +99,12 @@
     <ClCompile Include="Source\SoundService.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\IProjectile.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BulletService.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -180,6 +186,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\Sound\SoundService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\IProjectile\IProjectile.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Bullet\BulletService.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
