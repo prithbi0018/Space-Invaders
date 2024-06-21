@@ -132,7 +132,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\BulletConfig.cpp" />
+    <ClCompile Include="Source\BulletController.cpp" />
+    <ClCompile Include="Source\BulletModel.cpp" />
     <ClCompile Include="Source\BulletService.cpp" />
+    <ClCompile Include="Source\BulletView.cpp" />
     <ClCompile Include="Source\BunkerController.cpp" />
     <ClCompile Include="Source\BunkerModel.cpp" />
     <ClCompile Include="Source\BunkerView.cpp" />
@@ -164,7 +168,11 @@
     <ClCompile Include="Source\ZapperComtroller.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\Bullet\BulletConfig.h" />
+    <ClInclude Include="Header\Bullet\BulletController.h" />
+    <ClInclude Include="Header\Bullet\BulletModel.h" />
     <ClInclude Include="Header\Bullet\BulletService.h" />
+    <ClInclude Include="Header\Bullet\BulletView.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerController.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerModel.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerView.h" />
