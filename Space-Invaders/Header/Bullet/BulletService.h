@@ -1,23 +1,33 @@
+
+
 #pragma once
+#include <vector>
+#include "SFML/System/Vector2.hpp"
+#include "../../Header/Projectile/IProjectile.h"
 
-#include <SFML/System/Vector2.hpp>
-#include "../../Header/Bullet/BulletConfig.h"
-
-namespace Projectile
+namespace Bullet
 {
+	class BulletController;
+	enum class BulletType;
 	enum class MovementDirection;
 
-	class IProjectile
+	class BulletService
 	{
+	private:
+		std::vector<Projectile::IProjectile*> bullet_list;
+
+		BulletController* createBullet(BulletType bullet_type);
+		void destroy();
+
 	public:
-		virtual void initialize(sf::Vector2f position, Bullet::MovementDirection direction) = 0;
-		virtual void update() = 0;
-		virtual void render() = 0;
+		BulletService();
+		virtual ~BulletService();
 
-		virtual void updateProjectilePosition() = 0;
-		virtual sf::Vector2f getProjectilePosition() = 0;
+		void initialize();
+		void update();
+		void render();
 
-		virtual ~IProjectile() {};
+		BulletController* spawnBullet(BulletType bullet_type, sf::Vector2f position, MovementDirection direction);
+		void destroyBullet(BulletController* bullet_controller);
 	};
 }
-
