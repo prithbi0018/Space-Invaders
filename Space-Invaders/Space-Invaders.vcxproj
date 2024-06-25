@@ -173,6 +173,7 @@
     <ClCompile Include="Source\SubZeroController.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
     <ClCompile Include="Source\TorpedoController.cpp" />
+    <ClCompile Include="Source\UfoController.cpp" />
     <ClCompile Include="Source\UIService.cpp" />
     <ClCompile Include="Source\ZapperComtroller.cpp" />
   </ItemGroup>
@@ -218,6 +219,7 @@
     <ClInclude Include="Header\Projectile\IProjectile.h" />
     <ClInclude Include="Header\Sound\SoundService.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
+    <ClInclude Include="Header\ufo\UfoController.h" />
     <ClInclude Include="Header\UI\MainMenuController\MainMenuController.h" />
     <ClInclude Include="Header\UI\UIService\UIService.h" />
   </ItemGroup>
