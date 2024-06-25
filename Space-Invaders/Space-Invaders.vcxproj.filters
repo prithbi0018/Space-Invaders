@@ -117,6 +117,12 @@
     <ClCompile Include="Source\BulletView.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\LaserBulletController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TorpedoController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -216,6 +222,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\Bullet\BulletView.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Bullet\LaserBulletController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Bullet\TorpedoController.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
