@@ -230,5 +230,8 @@
     <ClInclude Include="Header\Bullet\TorpedoController.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="Header\Projectile\IProjectile.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
