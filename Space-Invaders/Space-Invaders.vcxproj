@@ -154,6 +154,7 @@
     <ClCompile Include="Source\GameService.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\IProjectile.cpp" />
+    <ClCompile Include="Source\LaserBulletController.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\MainMenuController.cpp" />
     <ClCompile Include="Source\PlayerController.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="Source\SoundService.cpp" />
     <ClCompile Include="Source\SubZeroController.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
+    <ClCompile Include="Source\TorpedoController.cpp" />
     <ClCompile Include="Source\UIService.cpp" />
     <ClCompile Include="Source\ZapperComtroller.cpp" />
   </ItemGroup>
@@ -173,6 +175,8 @@
     <ClInclude Include="Header\Bullet\BulletModel.h" />
     <ClInclude Include="Header\Bullet\BulletService.h" />
     <ClInclude Include="Header\Bullet\BulletView.h" />
+    <ClInclude Include="Header\Bullet\LaserBulletController.h" />
+    <ClInclude Include="Header\Bullet\TorpedoController.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerController.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerModel.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerView.h" />
