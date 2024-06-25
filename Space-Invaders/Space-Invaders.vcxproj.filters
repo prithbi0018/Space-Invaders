@@ -123,6 +123,9 @@
     <ClCompile Include="Source\TorpedoController.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ICollectible.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -231,6 +234,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\Projectile\IProjectile.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Collectible\ICollectible.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

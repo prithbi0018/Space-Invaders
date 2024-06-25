@@ -153,6 +153,7 @@
     <ClCompile Include="Source\GameplayView.cpp" />
     <ClCompile Include="Source\GameService.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
+    <ClCompile Include="Source\ICollectible.cpp" />
     <ClCompile Include="Source\IProjectile.cpp" />
     <ClCompile Include="Source\LaserBulletController.cpp" />
     <ClCompile Include="Source\main.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Header\Bullet\BulletView.h" />
     <ClInclude Include="Header\Bullet\LaserBulletController.h" />
     <ClInclude Include="Header\Bullet\TorpedoController.h" />
+    <ClInclude Include="Header\Collectible\ICollectible.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerController.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerModel.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerView.h" />
