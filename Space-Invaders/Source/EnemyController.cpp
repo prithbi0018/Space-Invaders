@@ -1,131 +1,98 @@
-#include "../../Header/Enemy/EnemyController.h"
-#include "../../Header/Enemy/EnemyView.h"
-#include "../../Header/Enemy/EnemyModel.h"
-#include "../../Header/Global/ServiceLocator.h"
+
+
+#include "../../header/Enemy/EnemyController.h"
+#include "../../header/Enemy/EnemyView.h"
+#include "../../header/Enemy/EnemyModel.h"
+#include "../Header/Enemy/EnemConfig.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Bullet/BulletConfig.h"
 
 namespace Enemy
 {
-    using namespace Global;
+	using namespace Global;
+	using namespace Time;
+	using namespace Bullet;
 
-    EnemyController::EnemyController()
-    {
-        enemy_view = new EnemyView();
-        enemy_model = new EnemyModel();
-    }
+	EnemyController::EnemyController(EnemyType type)
+	{
+		enemy_view = new EnemyView();
+		enemy_model = new EnemyModel(type);
+	}
 
-    EnemyController::~EnemyController()
-    {
-        delete enemy_view;
-        delete enemy_model;
-    }
+	EnemyController::~EnemyController()
+	{
+		delete (enemy_view);
+		delete (enemy_model);
+	}
 
-    void EnemyController::update()
-    {
-        enemy_view->update();
-        move();
-    }
+	void EnemyController::initialize()
+	{
+		enemy_model->initialize();
+		enemy_model->setEnemyPosition(getRandomInitialPosition());
+		enemy_view->initialize(this);
+	}
 
-    void EnemyController::render()
-    {
-        enemy_view->render();
-    }
+	void EnemyController::update()
+	{
+		move();
+		updateFireTimer(); //new
+		processBulletFire(); //new
+		enemy_view->update();
+		handleOutOfBounds();
+	}
 
-    /*
-    void EnemyController::move()
-    {
-        switch (enemy_model->getMovementDirection())
-        {
-        case::Enemy::MovementDirection::LEFT:
-            moveLeft();
-            break;
+	void EnemyController::render()
+	{
+		enemy_view->render();
+	}
 
-        case::Enemy::MovementDirection::RIGHT:
-            moveRight();
-            break;
+	void EnemyController::updateFireTimer()
+	{
+		elapsed_fire_duration += ServiceLocator::getInstance()->getTimeService()->getDeltaTime(); //update the elapsed duration
+	}
 
-        case::Enemy::MovementDirection::DOWN:
-            moveDown();
-            break;
-        }
-    }
-    */
+	void EnemyController::processBulletFire() //if elapsed duration is equal to or more than the amount of time we want to wait until firing than call the fire method.
+	{
+		if (elapsed_fire_duration >= rate_of_fire)
+		{
+			fireBullet();
+			elapsed_fire_duration = 0.f; //set elapsed duration back to 0.
+		}
+	}
 
-    void EnemyController::moveLeft()
-    {
-        // Get current pos
-        // Move left by multiplying by speed and delta time
-        sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-        currentPosition.x -= enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	sf::Vector2f EnemyController::getRandomInitialPosition()
+	{
+		float x_offset_distance = (std::rand() % static_cast<int>(enemy_model->right_most_position.x - enemy_model->left_most_position.x));
+		float x_position = enemy_model->left_most_position.x + x_offset_distance;
+		float y_position = enemy_model->left_most_position.y;
 
-        // Check for bounds
-        if (currentPosition.x <= enemy_model->left_most_position.x)
-        {
-            // If reached the left most pos
-            // Start moving down
-            // Set ref pos for the downwards movement
-            enemy_model->setMovementDirection(MovementDirection::DOWN);
-            enemy_model->setReferencePosition(currentPosition);
-        }
-        else
-        {
-            enemy_model->setEnemyPosition(currentPosition);
-        }
-    }
+		return sf::Vector2f(x_position, y_position);
+	}
 
-    void EnemyController::moveRight()
-    {
-        sf::Vector2f currentPosition = enemy_model->getEnemyPosition(); // Get enemy pos
-        currentPosition.x += enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime(); // Move
+	void EnemyController::handleOutOfBounds()
+	{
+		sf::Vector2f enemyPosition = getEnemyPosition();
+		sf::Vector2u windowSize = ServiceLocator::getInstance()->getGraphicService()->getGameWindow()->getSize();
 
-        if (currentPosition.x >= enemy_model->right_most_position.x) // Check if we reached right most pos
-        {
-            enemy_model->setMovementDirection(MovementDirection::DOWN); // Move
-            enemy_model->setReferencePosition(currentPosition); // Set ref pos
-        }
-        else
-        {
-            enemy_model->setEnemyPosition(currentPosition); // If we have not reached right most pos continue moving right
-        }
-    }
+		if (enemyPosition.x < 0 || enemyPosition.x > windowSize.x ||
+			enemyPosition.y < 0 || enemyPosition.y > windowSize.y)
+		{
+			ServiceLocator::getInstance()->getEnemyService()->destroyEnemy(this);
+		}
+	}
 
-    void EnemyController::moveDown()
-    {
-        sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-        currentPosition.y += enemy_model->enemy_movement_speed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	sf::Vector2f EnemyController::getEnemyPosition()
+	{
+		return enemy_model->getEnemyPosition();
+	}
 
-        // Check if enemy has moved the specified distance downwards
-        if (currentPosition.y >= enemy_model->getReferencePosition().y + enemy_model->vertical_travel_distance)
-        {
-            // Check where to move them based on position
-            if (enemy_model->getReferencePosition().x <= enemy_model->left_most_position.x)
-            {
-                enemy_model->setMovementDirection(MovementDirection::RIGHT);
-            }
-            else
-            {
-                enemy_model->setMovementDirection(MovementDirection::LEFT);
-            }
-        }
-        else
-        {
-            enemy_model->setEnemyPosition(currentPosition);
-        }
-    }
+	EnemyState EnemyController::getEnemyState()
+	{
+		return enemy_model->getEnemyState();
+	}
 
-    sf::Vector2f EnemyController::getEnemyPosition()
-    {
-        return enemy_model->getEnemyPosition();
-    }
-
-    EnemyController* EnemyService::spawnEnemy()
-    {
-        // Creates and initializes an enemy controller
-        EnemyController* enemy = new EnemyController();
-        enemy->initialize();
-
-        enemy_list.push_back(enemy_controller);
-
-        return enemy_controller;
-        return enemy_controller;
-    }
+	EnemyType EnemyController::getEnemyType()
+	{
+		return enemy_model->getEnemyType();
+	}
 }
