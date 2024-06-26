@@ -1,6 +1,6 @@
 #pragma once
 #include "../../header/Enemy/EnemyController.h"
-#include "../../header/Powerup/PowerupConfig.h"
+#include "../Powerups/PowerupConfig.h"
 
 namespace Enemy
 {
