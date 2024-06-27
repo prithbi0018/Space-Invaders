@@ -126,6 +126,33 @@
     <ClCompile Include="Source\ICollectible.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\OutscalBombController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PowerupController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PowerupModel.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PowerupService.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PowerupView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Powerupconfig.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UfoController.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImageView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -237,6 +264,33 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\Collectible\ICollectible.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Powerups\controller\OutscalBombController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Powerups\PowerupConfig.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Powerups\PowerupController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Powerups\PowerupModel.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Powerups\PowerupService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Powerups\PowerupView.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\ufo\UfoController.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\UI\UIElement\ImageView.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\UI\UIElement\UIView.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>

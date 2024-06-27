@@ -154,6 +154,7 @@
     <ClCompile Include="Source\GameService.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\ICollectible.cpp" />
+    <ClCompile Include="Source\ImageView.cpp" />
     <ClCompile Include="Source\IProjectile.cpp" />
     <ClCompile Include="Source\LaserBulletController.cpp" />
     <ClCompile Include="Source\main.cpp" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Source\TorpedoController.cpp" />
     <ClCompile Include="Source\UfoController.cpp" />
     <ClCompile Include="Source\UIService.cpp" />
+    <ClCompile Include="Source\UIView.cpp" />
     <ClCompile Include="Source\ZapperComtroller.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +223,8 @@
     <ClInclude Include="Header\Time\TimeService.h" />
     <ClInclude Include="Header\ufo\UfoController.h" />
     <ClInclude Include="Header\UI\MainMenuController\MainMenuController.h" />
+    <ClInclude Include="Header\UI\UIElement\ImageView.h" />
+    <ClInclude Include="Header\UI\UIElement\UIView.h" />
     <ClInclude Include="Header\UI\UIService\UIService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
