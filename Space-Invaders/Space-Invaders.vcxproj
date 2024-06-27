@@ -140,6 +140,7 @@
     <ClCompile Include="Source\BunkerController.cpp" />
     <ClCompile Include="Source\BunkerModel.cpp" />
     <ClCompile Include="Source\BunkerView.cpp" />
+    <ClCompile Include="Source\BUttonView.cpp" />
     <ClCompile Include="Source\Config.cpp" />
     <ClCompile Include="Source\ElementService.cpp" />
     <ClCompile Include="Source\EnemyConfig.cpp" />
@@ -172,6 +173,7 @@
     <ClCompile Include="Source\SoundService.cpp" />
     <ClCompile Include="Source\Powerupconfig.cpp" />
     <ClCompile Include="Source\SubZeroController.cpp" />
+    <ClCompile Include="Source\TextView.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
     <ClCompile Include="Source\TorpedoController.cpp" />
     <ClCompile Include="Source\UfoController.cpp" />
@@ -223,7 +225,9 @@
     <ClInclude Include="Header\Time\TimeService.h" />
     <ClInclude Include="Header\ufo\UfoController.h" />
     <ClInclude Include="Header\UI\MainMenuController\MainMenuController.h" />
+    <ClInclude Include="Header\UI\UIElement\ButtonView.h" />
     <ClInclude Include="Header\UI\UIElement\ImageView.h" />
+    <ClInclude Include="Header\UI\UIElement\TextView.h" />
     <ClInclude Include="Header\UI\UIElement\UIView.h" />
     <ClInclude Include="Header\UI\UIService\UIService.h" />
   </ItemGroup>

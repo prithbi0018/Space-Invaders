@@ -1,11 +1,12 @@
-#include "../Header/UI/UIService/UIService.h"
-#include "../Header/Main/GameService.h"
-#include "../Header/UI/MainMenuController/MainMenuController.h"
+#include "../../header/UI/UIService.h"
+#include "../../header/Main/GameService.h"
+#include "../../header/UI/UIElement/TextView.h" 
 
 namespace UI
 {
 	using namespace Main;
 	using namespace MainMenu;
+	using namespace UIElement; 
 	using namespace Interface;
 
 	UIService::UIService()
@@ -27,6 +28,7 @@ namespace UI
 
 	void UIService::initialize()
 	{
+		TextView::initializeTextView();
 		initializeControllers();
 	}
 
@@ -68,32 +70,5 @@ namespace UI
 	void UIService::destroy()
 	{
 		delete(main_menu_controller);
-	}
-}
-#i
-
-		UIView::UIView() = default;
-
-		UIView::~UIView() = default;
-
-		void UIView::initialize()
-		{
-			game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-			ui_state = UIState::VISIBLE;
-		}
-
-		void UIView::update() { }
-
-		void UIView::render() { }
-
-		void UIView::show()
-		{
-			ui_state = UIState::VISIBLE;
-		}
-
-		void UIView::hide()
-		{
-			ui_state = UIState::HIDDEN;
-		}
 	}
 }

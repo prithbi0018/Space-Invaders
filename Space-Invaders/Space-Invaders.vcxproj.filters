@@ -153,6 +153,12 @@
     <ClCompile Include="Source\UIView.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\TextView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BUttonView.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -291,6 +297,12 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\UI\UIElement\UIView.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\UI\UIElement\TextView.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\UI\UIElement\ButtonView.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
