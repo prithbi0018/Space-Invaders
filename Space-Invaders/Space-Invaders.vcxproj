@@ -148,6 +148,7 @@
     <ClCompile Include="Source\EnemyModel.cpp" />
     <ClCompile Include="Source\EnemyService.cpp" />
     <ClCompile Include="Source\EnemyView.cpp" />
+    <ClCompile Include="Source\EntityConfig.cpp" />
     <ClCompile Include="Source\EventService.cpp" />
     <ClCompile Include="Source\GameplayController.cpp" />
     <ClCompile Include="Source\GameplayService.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="Source\GameService.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\ICollectible.cpp" />
+    <ClCompile Include="Source\ICollider.cpp" />
     <ClCompile Include="Source\ImageView.cpp" />
     <ClCompile Include="Source\IProjectile.cpp" />
     <ClCompile Include="Source\LaserBulletController.cpp" />
@@ -190,6 +192,7 @@
     <ClInclude Include="Header\Bullet\LaserBulletController.h" />
     <ClInclude Include="Header\Bullet\TorpedoController.h" />
     <ClInclude Include="Header\Collectible\ICollectible.h" />
+    <ClInclude Include="Header\Collider\ICollider.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerController.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerModel.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerView.h" />
@@ -201,6 +204,7 @@
     <ClInclude Include="Header\Enemy\EnemyController.h" />
     <ClInclude Include="Header\Enemy\EnemyModel.h" />
     <ClInclude Include="Header\Enemy\EnemyService.h" />
+    <ClInclude Include="Header\Entity\EntityConfig.h" />
     <ClInclude Include="Header\Event\EventService.h" />
     <ClInclude Include="Header\Gameplay\Gameplaycontrolller.h" />
     <ClInclude Include="Header\Gameplay\GameplayService.h" />

@@ -159,6 +159,9 @@
     <ClCompile Include="Source\BUttonView.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EntityConfig.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Global\ServiceLocator.h">
@@ -303,6 +306,9 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Header\UI\UIElement\ButtonView.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Entity\EntityConfig.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
