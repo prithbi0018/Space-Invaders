@@ -2,23 +2,34 @@
 #include "../../Header/UI/MainMenuController/MainMenuController.h"
 #include "../../Header/Global/ServiceLocator.h"
 
+
+
 namespace UI
 {
-	class UIService
+	namespace UIElement
 	{
-	private:
-		MainMenu::MainMenuUIController* main_menu_controller;
+		enum class UIState
+		{
+			VISIBLE,
+			HIDDEN,
+		};
 
-		void createControllers();
-		void initializeControllers();
-		void destroy();
+		class UIView
+		{
+		protected:
+			sf::RenderWindow* game_window;
+			UIState ui_state;
 
-	public:
-		UIService();
-		~UIService();
+		public:
+			UIView();
+			virtual ~UIView();
 
-		void initialize();
-		void update();
-		void render();
-	};
+			virtual void initialize();
+			virtual void update();
+			virtual void render();
+
+			virtual void show();
+			virtual void hide();
+		};
+	}
 }

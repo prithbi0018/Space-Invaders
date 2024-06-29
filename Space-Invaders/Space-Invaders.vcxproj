@@ -140,6 +140,8 @@
     <ClCompile Include="Source\BunkerController.cpp" />
     <ClCompile Include="Source\BunkerModel.cpp" />
     <ClCompile Include="Source\BunkerView.cpp" />
+    <ClCompile Include="Source\BUttonView.cpp" />
+    <ClCompile Include="Source\CollisionService.cpp" />
     <ClCompile Include="Source\Config.cpp" />
     <ClCompile Include="Source\ElementService.cpp" />
     <ClCompile Include="Source\EnemyConfig.cpp" />
@@ -147,6 +149,7 @@
     <ClCompile Include="Source\EnemyModel.cpp" />
     <ClCompile Include="Source\EnemyService.cpp" />
     <ClCompile Include="Source\EnemyView.cpp" />
+    <ClCompile Include="Source\EntityConfig.cpp" />
     <ClCompile Include="Source\EventService.cpp" />
     <ClCompile Include="Source\GameplayController.cpp" />
     <ClCompile Include="Source\GameplayService.cpp" />
@@ -154,20 +157,31 @@
     <ClCompile Include="Source\GameService.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\ICollectible.cpp" />
+    <ClCompile Include="Source\ICollider.cpp" />
+    <ClCompile Include="Source\ImageView.cpp" />
     <ClCompile Include="Source\IProjectile.cpp" />
     <ClCompile Include="Source\LaserBulletController.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\MainMenuController.cpp" />
+    <ClCompile Include="Source\OutscalBombController.cpp" />
     <ClCompile Include="Source\PlayerController.cpp" />
     <ClCompile Include="Source\PlayerModel.cpp" />
     <ClCompile Include="Source\PlayerService.cpp" />
     <ClCompile Include="Source\PlayerView.cpp" />
+    <ClCompile Include="Source\PowerupController.cpp" />
+    <ClCompile Include="Source\PowerupModel.cpp" />
+    <ClCompile Include="Source\PowerupService.cpp" />
+    <ClCompile Include="Source\PowerupView.cpp" />
     <ClCompile Include="Source\ServiceLocator.cpp" />
     <ClCompile Include="Source\SoundService.cpp" />
+    <ClCompile Include="Source\Powerupconfig.cpp" />
     <ClCompile Include="Source\SubZeroController.cpp" />
+    <ClCompile Include="Source\TextView.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
     <ClCompile Include="Source\TorpedoController.cpp" />
+    <ClCompile Include="Source\UfoController.cpp" />
     <ClCompile Include="Source\UIService.cpp" />
+    <ClCompile Include="Source\UIView.cpp" />
     <ClCompile Include="Source\ZapperComtroller.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +193,8 @@
     <ClInclude Include="Header\Bullet\LaserBulletController.h" />
     <ClInclude Include="Header\Bullet\TorpedoController.h" />
     <ClInclude Include="Header\Collectible\ICollectible.h" />
+    <ClInclude Include="Header\Collider\CollisionService.h" />
+    <ClInclude Include="Header\Collider\ICollider.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerController.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerModel.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerView.h" />
@@ -190,6 +206,7 @@
     <ClInclude Include="Header\Enemy\EnemyController.h" />
     <ClInclude Include="Header\Enemy\EnemyModel.h" />
     <ClInclude Include="Header\Enemy\EnemyService.h" />
+    <ClInclude Include="Header\Entity\EntityConfig.h" />
     <ClInclude Include="Header\Event\EventService.h" />
     <ClInclude Include="Header\Gameplay\Gameplaycontrolller.h" />
     <ClInclude Include="Header\Gameplay\GameplayService.h" />
@@ -203,10 +220,21 @@
     <ClInclude Include="Header\Player\PlayerService.h" />
     <ClInclude Include="Header\Player\PlayerView.h" />
     <ClInclude Include="Header\Global\ServiceLocator.h" />
+    <ClInclude Include="Header\Powerups\controller\OutscalBombController.h" />
+    <ClInclude Include="Header\Powerups\PowerupConfig.h" />
+    <ClInclude Include="Header\Powerups\PowerupController.h" />
+    <ClInclude Include="Header\Powerups\PowerupModel.h" />
+    <ClInclude Include="Header\Powerups\PowerupService.h" />
+    <ClInclude Include="Header\Powerups\PowerupView.h" />
     <ClInclude Include="Header\Projectile\IProjectile.h" />
     <ClInclude Include="Header\Sound\SoundService.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
+    <ClInclude Include="Header\ufo\UfoController.h" />
     <ClInclude Include="Header\UI\MainMenuController\MainMenuController.h" />
+    <ClInclude Include="Header\UI\UIElement\ButtonView.h" />
+    <ClInclude Include="Header\UI\UIElement\ImageView.h" />
+    <ClInclude Include="Header\UI\UIElement\TextView.h" />
+    <ClInclude Include="Header\UI\UIElement\UIView.h" />
     <ClInclude Include="Header\UI\UIService\UIService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
