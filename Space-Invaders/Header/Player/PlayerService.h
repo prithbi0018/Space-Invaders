@@ -1,34 +1,26 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 
-
-
-class EventService;
-
-class PlayerService
+namespace Player
 {
-   
-    private:
-        sf::Texture playerTexture;
-        sf::Sprite playerSprite;
-        const std::string playerTexturePath = "assets/textures/player_ship.png";;
-        sf::RenderWindow* gameWindow;
-        void initializePlayerSprite();
-        void processPlayerInput();
+	class PlayerController;
 
-    public:
-        PlayerService(const std::string& texturePath);
-        ~PlayerService();
+	class PlayerService
+	{
+	private:
+		PlayerController* player_controller;
 
-        void initialize(sf::RenderWindow* window);
-        void update();
-        void render();
+	public:
+		PlayerService();
+		virtual ~PlayerService();
 
-        void move(float offsetX);
-        int getMoveSpeed();
-        sf::Vector2f getPlayerPosition();
-    };
+		void initialize();
+		void update();
+		void render();
 
+		void enableShield();
+		void enableRapidFire();
+		void enableTrippleLaser();
 
-
-
+		void reset();
+	};
+}
