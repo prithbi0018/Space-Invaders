@@ -1,58 +1,76 @@
 #pragma once
-
-#include "../Graphic/GraphicService.h"
-#include "../Header/Event/EventService.h"
-#include "../Time/TimeService.h"
-#include "../UI/UIService/UIService.h"
-#include "../Gameplay/GameplayService.h"
+#include "../../Header/Player/PlayerService.h"
+#include "../../Header/Enemy/EnemyService.h"
+#include "../../Header/Time/TimeService.h"
+#include "../../Header/Graphics/GraphicService.h"
+#include "../../Header/Event/EventService.h"
+#include "../../Header/UI/UIService.h"
+#include "../../Header/Gameplay/GameplayService.h"
+#include "../../Header/Elements/ElementService.h"
+#include "../Bullet/BulletService.h"
+#include "../Powerup/PowerupConfig.h"
+#include "../Powerup/PowerupService.h"
+#include "../Sound/SoundService.h"
+#include "../../Header/Collision/CollisionService.h"
+#include "../../Header/AnimationSystem/AnimationService.h"
 
 
 namespace Global {
-    class UIService;
-    class ElementService;
-    class ServiceLocator {
-    private:
-        GraphicService* graphicservice;
-        EventService* eventServiceInstance;
-        TimeService* timeServiceInstance;
-        UI::UIService* uiServiceInstance; 
 
-        ServiceLocator();
-        ~ServiceLocator();
+	class ServiceLocator
+	{
+	private:
 
-        void createServices();
-        void clearAllServices();
+		// Private Attributes:
+		// - event_service: Manages event-related functionalities.
+		// - graphic_service: Handles graphics-related tasks.
+		// ..........................
+		Graphics::GraphicService* graphic_service;
+		Time::TimeService* time_service;
+		Event::EventService* event_service;
+		Player::PlayerService* player_service;
+		Enemy::EnemyService* enemy_service;
+		Gameplay::GameplayService* gameplay_service;
+		Element::ElementService* element_service;
+		UI::UIService* ui_service;
+		Sound::SoundService* sound_service;
+		Bullet::BulletService* bullet_service;
+		Powerup::PowerupService* powerup_service;
+		Collision::CollisionService* collision_service;
+		Animation::AnimationService* animation_service;
+		// ..........................
 
-        static ServiceLocator* instance;
-        std::unique_ptr<ElementService> elementService;
+		ServiceLocator();
 
+		// Destructor for cleaning up resources upon object deletion.
+		~ServiceLocator();
 
-    public:
-        static ServiceLocator* getInstance();
-        void initialize();
-        void update();
-        void render();
+		// Private Methods:
+		void createServices(); 			// Creates instances of all services.
+		void clearAllServices(); 		//	Deletes and deallocates memory for all services.
 
-        GraphicService* GetGraphicService();
-        void provideEventService(EventService* eventService);
-        EventService* getEventServiceInstance();
-        GraphicService* getGraphicService();
-        TimeService* getTimeService();
-        GameplayService* getGameplayService();
+	public:
+		// Public Methods:
+		static ServiceLocator* getInstance();  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
 
-        
-        void provideUIService(UI::UIService* uiService);
-        UI::UIService* getUIService();
+		void initialize(); 			//	Initializes the ServiceLocator.
+		void update(); 				//	Updates all services.
+		void render(); 				//	Renders using the services.
 
-        void provide(ElementService* service)
-        {
-            elementService.reset(service);
-        }
+		// Methods to Get Specific Services: 
 
-        ElementService* getElementService()
-        {
-            return elementService.get();
-        }
-
-    };
+		Graphics::GraphicService* getGraphicService();
+		Time::TimeService* getTimeService();
+		Event::EventService* getEventService();
+		Player::PlayerService* getPlayerService();
+		Enemy::EnemyService* getEnemyService();
+		UI::UIService* getUIService();
+		Element::ElementService* getElementService();
+		Gameplay::GameplayService* getGamePlayService();
+		Sound::SoundService* getSoundService();
+		Bullet::BulletService* getBulletService();
+		Powerup::PowerupService* getPowerupService();
+		Collision::CollisionService* getCollisionService();
+		Animation::AnimationService* getAnimationService();
+	};
 }

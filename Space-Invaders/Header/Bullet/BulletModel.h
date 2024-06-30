@@ -1,45 +1,40 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>  
+#include "../../Header/Entity/EntityConfig.h"
 
-namespace Enemy
+namespace Bullet
 {
-    enum class EnemyType;
-    enum class EnemyState;
+    enum class BulletType;
     enum class MovementDirection;
+    using namespace Entity;
 
-    class EnemyModel
+    class BulletModel
     {
     private:
-        sf::Vector2f reference_position = sf::Vector2f(50.f, 50.f);
-        sf::Vector2f enemy_position;
+        float movement_speed = 300.f;
+        sf::Vector2f bullet_position;
 
-        EnemyType enemy_type;
-        EnemyState enemy_state;
+        EntityType owner_type;
+        BulletType bullet_type;
         MovementDirection movement_direction;
 
     public:
-        const sf::Vector2f left_most_position = sf::Vector2f(50.f, 50.f);
-        const sf::Vector2f right_most_position = sf::Vector2f(1800.f, 50.f);
-        const sf::Vector2f barrel_position_offset = sf::Vector2f(20.f, 50.f); // we add this offset variable
 
-        EnemyModel(EnemyType type);
-        ~EnemyModel();
+        BulletModel(BulletType type, EntityType owner_type);
+        ~BulletModel();
 
-        void initialize();
+        void initialize(sf::Vector2f position, MovementDirection direction);
 
-        sf::Vector2f getEnemyPosition();
-        void setEnemyPosition(sf::Vector2f position);
+        sf::Vector2f getBulletPosition();
+        void setBulletPosition(sf::Vector2f position);
 
-        sf::Vector2f getReferencePosition();
-        void setReferencePosition(sf::Vector2f position);
-
-        EnemyState getEnemyState();
-        void setEnemyState(EnemyState state);
-
-        EnemyType getEnemyType();
-        void setEnemyType(EnemyType type);
+        BulletType getBulletType();
+        Entity::EntityType getOwnerEntityType();
 
         MovementDirection getMovementDirection();
         void setMovementDirection(MovementDirection direction);
+
+        float getMovementSpeed();
+        void setMovementSpeed(float speed);
     };
 }

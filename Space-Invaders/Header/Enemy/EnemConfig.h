@@ -1,8 +1,8 @@
 #pragma once
-#pragma once
 
 namespace Enemy
 {
+
     enum class EnemyType
     {
         ZAPPER,
@@ -23,5 +23,7 @@ namespace Enemy
         LEFT,
         RIGHT,
         DOWN,
+        LEFT_DOWN,
+        RIGHT_DOWN,
     };
 }

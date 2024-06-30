@@ -1,4 +1,5 @@
-include <vector>
+#pragma once
+#include <vector>
 #include "SFML/System/Vector2.hpp"
 #include "../../Header/Projectile/IProjectile.h"
 #include "../../header/Entity/EntityConfig.h"
@@ -36,4 +37,3 @@ namespace Bullet
 		void destroyBullet(BulletController* bullet_controller);
 	};
 }
-

@@ -1,58 +1,53 @@
 #pragma once
-#include "SFML/Graphics.hpp"
+#include <SFML/System/Vector2.hpp>
+#include "../../header/Entity/EntityConfig.h"
 
 namespace Enemy
-{	
-	enum class EnemyType
-	{
-		ZAPPER,
-		SUBZERO,
-		UFO,
-		THUNDER_SNAKE,
-	};
-	enum class MovementDirection
-	{
-		LEFT,
-		RIGHT,
-		DOWN,
-	};
+{
+
+
+	enum class EnemyType;
+	enum class MovementDirection;
+	enum class EnemyState;
+
 	class EnemyModel
 	{
-	private:
+		sf::Vector2f enemy_position;
+		sf::Vector2f reference_position = sf::Vector2f(50.f, 50.f);
 
+		Entity::EntityType entity_type;
 		MovementDirection movement_direction;
 		EnemyType enemy_type;
-
-		sf::Vector2f reference_position = sf::Vector2f(50.0f, 50.0f);
-			sf::Vector2f enemy_position;
+		EnemyState enemy_state;
 
 	public:
-		const sf::Vector2f left_most_position = sf::Vector2f(50.f, 950.f);
-		const sf::Vector2f right_most_position = sf::Vector2f(1800.f, 950.f);
-
-		const float vertical_travel_distance = 100.f;
-		const float enemy_movement_speed = 250.0f;
+		const sf::Vector2f left_most_position = sf::Vector2f(50.f, 50.f);
+		const sf::Vector2f right_most_position = sf::Vector2f(1800.f, 50.f);
+		const sf::Vector2f barrel_position_offset = sf::Vector2f(20.f, 50.f);
 
 		EnemyModel(EnemyType type);
 		~EnemyModel();
 
 		void initialize();
+		void update();
+		void render();
 
 		sf::Vector2f getEnemyPosition();
-		void setEnemyPosition(sf::Vector2f position);
+		void setEnemyPosition(sf::Vector2f pos);
 
 		sf::Vector2f getReferencePosition();
-		void setReferencePosition(sf::Vector2f position);
-
-		EnemyState getEnemyState();
-		void setEnemyState(EnemyState state);
-
-		EnemyType getEnemyType();
-		void setEnemyType(EnemyType type);
+		void setReferencePosition(sf::Vector2f pos);
 
 		MovementDirection getMovementDirection();
 		void setMovementDirection(MovementDirection direction);
 
+		EnemyType getEnemyType();
+		void setEnemyType(EnemyType type);
 
+		EnemyState getEnemyState();
+		void setEnemyState(EnemyState state);
+
+		Entity::EntityType getEntityType();
 	};
+
 }

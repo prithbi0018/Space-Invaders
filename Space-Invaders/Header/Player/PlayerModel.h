@@ -15,20 +15,18 @@ namespace Player
     class PlayerModel
     {
     private:
-        friend class PlayerController; //friend class
+        friend class PlayerController;
 
-        //friend methods
         friend void UI::GameplayUI::GameplayUIController::updateEnemiesKilledText();
         friend void UI::GameplayUI::GameplayUIController::drawPlayerLives();
 
         const sf::Vector2f initial_player_position = sf::Vector2f(950.f, 950.f);
-        const int max_player_lives = 3; //max lives
+        const int max_player_lives = 3;
 
         sf::Vector2f player_position;
         Entity::EntityType entity_type;
         PlayerState player_state;
 
-        //new variables
         static int player_lives;
         static int enemies_killed;
 

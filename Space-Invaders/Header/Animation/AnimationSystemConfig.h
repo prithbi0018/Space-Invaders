@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 
 namespace Animation
 {
@@ -27,4 +28,4 @@ namespace Animation
             number_of_animation_frames(frames),
             frame_duration(duration) {}
     };
-}
+}s

@@ -1,8 +1,5 @@
 #pragma once
 
-
-#pragma once
-
 namespace Gameplay
 {
 	class GameplayController;
@@ -19,5 +16,7 @@ namespace Gameplay
 		void initialize();
 		void update();
 		void render();
+
+		void restart();
 	};
 }

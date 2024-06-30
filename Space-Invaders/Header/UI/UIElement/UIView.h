@@ -1,31 +1,32 @@
 #pragma once
-#include "../../header/UI/UIElement/UIView.h"
+#include <SFML/Graphics.hpp>
 
 namespace UI
 {
 	namespace UIElement
 	{
-		class ImageView : public UIView
+		enum class UIState
+		{
+			VISIBLE,
+			HIDDEN,
+		};
+
+		class UIView
 		{
 		protected:
-			sf::Texture image_texture;
-			sf::Sprite image_sprite;
+			sf::RenderWindow* game_window;
+			UIState ui_state;
 
 		public:
-			ImageView();
-			virtual ~ImageView();
+			UIView();
+			virtual ~UIView();
 
-			virtual void initialize(sf::String texture_path, float image_width, float image_height, sf::Vector2f position);
-			virtual void update() override;
-			virtual void render() override;
+			virtual void initialize();
+			virtual void update();
+			virtual void render();
 
-			virtual void setTexture(sf::String texture_path);
-			virtual void setScale(float width, float height);
-			virtual void setPosition(sf::Vector2f position);
-			virtual void setRotation(float rotation_angle);
-			virtual void setOriginAtCentre();
-			virtual void setImageAlpha(float alpha);
-			virtual void setCentreAlinged();
+			virtual void show();
+			virtual void hide();
 		};
 	}
 }

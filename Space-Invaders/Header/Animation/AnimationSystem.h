@@ -1,5 +1,4 @@
 #pragma once
-
 #include <SFML/Graphics.hpp>
 #include "../../header/AnimationSystem/AnimationSystemConfig.h"
 #include "../../header/UI/UIElement/ImageView.h"
@@ -32,5 +31,3 @@ namespace Animation
         void destroy();
     };
 }
-
-

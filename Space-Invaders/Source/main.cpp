@@ -1,31 +1,19 @@
-#include "../Header/Main/GameService.h"
-#include "../Header/Element/ElementService.h"
-int main() {
-    
-    GameService* gameService = new GameService;
+#include <SFML/Graphics.hpp>
+#include "Header/Main/GameService.h"
 
-   
-    gameService->Ignite();
+using namespace std;
 
-    Global::ServiceLocator::getInstance()->provide(new Element::ElementService());
+int main()
+{
+    Main::GameService* game_service = new Main::GameService();
 
-    
-    Global::ServiceLocator::getInstance()->getElementService()->initialize();
+    game_service->ignite();
 
-
-    
-    while (gameService->isRunning()) {
-        
-        gameService->update();
-
-        
-        gameService->render();
+    while (game_service->isRunning())
+    {
+        game_service->update();
+        game_service->render();
     }
-    
-
-
-
-
 
     return 0;
 }
