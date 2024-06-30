@@ -153,6 +153,7 @@
     <ClCompile Include="Source\EventService.cpp" />
     <ClCompile Include="Source\GameplayController.cpp" />
     <ClCompile Include="Source\GameplayService.cpp" />
+    <ClCompile Include="Source\GameplayUIController.cpp" />
     <ClCompile Include="Source\GameplayView.cpp" />
     <ClCompile Include="Source\GameService.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="Header\Enemy\EnemyService.h" />
     <ClInclude Include="Header\Entity\EntityConfig.h" />
     <ClInclude Include="Header\Event\EventService.h" />
+    <ClInclude Include="Header\GameplayUIController\GameplayUIController.h" />
     <ClInclude Include="Header\Gameplay\Gameplaycontrolller.h" />
     <ClInclude Include="Header\Gameplay\GameplayService.h" />
     <ClInclude Include="Header\Gameplay\gameplayView.h" />
