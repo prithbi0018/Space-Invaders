@@ -1,31 +1,64 @@
+#include "../../header/Main/GameService.h"
+#include "../../header/Graphics/GraphicService.h"
+#include "../../header/Event/EventService.h"
+#include "../../header/UI/UIService.h"
 
-#include "../../Header/Gameplay/GameplayService.h"
-#include "../../Header/Gameplay/GameplayController.h"
-#include "../../header/Global/ServiceLocator.h"
-
-namespace Gameplay
+namespace Main
 {
 	using namespace Global;
-	using namespace Player;
-	using namespace Enemy;
-	using namespace Element;
-	using namespace Bullet;
+	using namespace Graphics;
+	using namespace Event;
+	using namespace UI;
 
-	GameplayService::GameplayService() { gameplay_controller = new GameplayController(); }
+	GameState GameService::current_state = GameState::BOOT;
 
-	GameplayService::~GameplayService() { delete (gameplay_controller); }
+	GameService::GameService() { service_locator = nullptr; }
 
-	void GameplayService::initialize() { gameplay_controller->initialize(); }
+	GameService::~GameService() { destroy(); }
 
-	void GameplayService::update() { gameplay_controller->update(); }
-
-	void GameplayService::render() { gameplay_controller->render(); }
-
-	void GameplayService::restart()
+	void GameService::ignite()
 	{
-		ServiceLocator::getInstance()->getPlayerService()->reset();
-		ServiceLocator::getInstance()->getEnemyService()->reset();
-		ServiceLocator::getInstance()->getBulletService()->reset();
-		ServiceLocator::getInstance()->getElementService()->reset();
+		service_locator = ServiceLocator::getInstance();
+		initialize();
 	}
+
+	void GameService::initialize()
+	{
+		service_locator->initialize();
+		initializeVariables();
+		showSplashScreen();
+	}
+
+	void GameService::initializeVariables() { game_window = service_locator->getGraphicService()->getGameWindow(); }
+
+	void GameService::showSplashScreen()
+	{
+		setGameState(GameState::SPLASH_SCREEN);
+		ServiceLocator::getInstance()->getUIService()->showScreen();
+	}
+
+	bool GameService::isRunning() { return service_locator->getGraphicService()->isGameWindowOpen(); }
+
+	// Main Game Loop.
+	void GameService::update()
+	{
+		// Process Events.
+		service_locator->getEventService()->processEvents();
+
+		// Update Game Logic.
+		service_locator->update();
+	}
+
+	void GameService::render()
+	{
+		game_window->clear();
+		service_locator->render();
+		game_window->display();
+	}
+
+	void GameService::destroy() { service_locator->deleteServiceLocator(); }
+
+	void GameService::setGameState(GameState new_state) { current_state = new_state; }
+
+	GameState GameService::getGameState() { return current_state; }
 }
