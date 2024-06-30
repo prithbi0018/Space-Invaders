@@ -1,125 +1,74 @@
-#include "../../header/Enemy/EnemyService.h"
-#include "../../header/Enemy/EnemyController.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Time/TimeService.h"
-#include "../../header/Enemy/EnemyConfig.h"
-#include "../../header/Enemy/Controller/ZapperController.h"
-#include "../../header/Enemy/Controller/ThunderSnakeController.h"
-#include "../../header/Enemy/Controller/SubzeroController.h"
-#include "../../header/Enemy/Controller/UFOController.h"
+#include "../../header/Elements/ElementService.h"
 #include "../../header/Collision/ICollider.h"
+#include "../../header/Global/ServiceLocator.h"
 
-namespace Enemy
+namespace Element
 {
 	using namespace Global;
-	using namespace Time;
-	using namespace Controller;
 	using namespace Collision;
 
-	EnemyService::EnemyService() { std::srand(static_cast<unsigned>(std::time(nullptr))); }
+	ElementService::ElementService() { }
 
-	EnemyService::~EnemyService() { destroy(); }
+	ElementService::~ElementService() { destroy(); }
 
-	void EnemyService::initialize()
+	void ElementService::initialize() { spawnBunkers(); }
+
+	void ElementService::update()
 	{
-		spawn_timer = spawn_interval;
+		for (Bunker::BunkerController* bunker : bunker_list)
+			bunker->update();
+
+		destroyFlaggedBunkers();
 	}
 
-	void EnemyService::update()
+	void ElementService::render()
 	{
-		updateSpawnTimer();
-		processEnemySpawn();
-
-		for (EnemyController* enemy : enemy_list)
-			enemy->update();
-
-		destroyFlaggedEnemies();
+		for (Bunker::BunkerController* bunker : bunker_list)
+			bunker->render();
 	}
 
-	void EnemyService::render()
+	void ElementService::spawnBunkers()
 	{
-		for (EnemyController* enemy : enemy_list)
-			enemy->render();
-	}
-
-	void EnemyService::updateSpawnTimer()
-	{
-		spawn_timer += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-	}
-
-	void EnemyService::processEnemySpawn()
-	{
-		if (spawn_timer >= spawn_interval)
+		for (int i = 0; i < bunker_data_list.size(); i++)
 		{
-			spawnEnemy();
-			spawn_timer = 0.0f;
+			Bunker::BunkerController* bunker_controller = new Bunker::BunkerController();
+
+			bunker_controller->initialize(bunker_data_list[i]);
+			bunker_list.push_back(bunker_controller);
+
+			ServiceLocator::getInstance()->getCollisionService()->addCollider(dynamic_cast<ICollider*>(bunker_controller));
 		}
 	}
 
-	EnemyController* EnemyService::spawnEnemy()
+	void ElementService::destroyBunker(Bunker::BunkerController* bunker_controller)
 	{
-		EnemyController* enemy_controller = createEnemy(getRandomEnemyType());
-		enemy_controller->initialize();
-
-		ServiceLocator::getInstance()->getCollisionService()->addCollider(dynamic_cast<ICollider*>(enemy_controller));
-		enemy_list.push_back(enemy_controller);
-		return enemy_controller;
+		flagged_bunker_list.push_back(bunker_controller);
+		bunker_list.erase(std::remove(bunker_list.begin(), bunker_list.end(), bunker_controller), bunker_list.end());
 	}
 
-	EnemyType EnemyService::getRandomEnemyType()
+	void ElementService::destroyFlaggedBunkers()
 	{
-		int random_value = std::rand() % (static_cast<int>(Enemy::EnemyType::UFO) + 1);
-		return static_cast<Enemy::EnemyType>(random_value);
-	}
-
-	EnemyController* EnemyService::createEnemy(EnemyType enemy_type)
-	{
-		switch (enemy_type)
+		for (int i = 0; i < flagged_bunker_list.size(); i++)
 		{
-		case::Enemy::EnemyType::ZAPPER:
-			return new ZapperController(Enemy::EnemyType::ZAPPER);
-
-		case::Enemy::EnemyType::THUNDER_SNAKE:
-			return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);
-
-		case::Enemy::EnemyType::SUBZERO:
-			return new SubzeroController(Enemy::EnemyType::SUBZERO);
-
-		case::Enemy::EnemyType::UFO:
-			return new UFOController(Enemy::EnemyType::UFO);
+			ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<ICollider*>(flagged_bunker_list[i]));
+			delete (flagged_bunker_list[i]);
 		}
+		flagged_bunker_list.clear();
 	}
 
-	void EnemyService::destroyFlaggedEnemies()
+	void ElementService::destroy()
 	{
-		for (int i = 0; i < flagged_enemy_list.size(); i++)
+		for (int i = 0; i < bunker_list.size(); i++)
 		{
-			ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<ICollider*>(flagged_enemy_list[i]));
-			delete (flagged_enemy_list[i]);
+			ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<ICollider*>(bunker_list[i]));
+			delete(bunker_list[i]);
 		}
-		flagged_enemy_list.clear();
+		bunker_list.clear();
 	}
 
-	void EnemyService::destroyEnemy(EnemyController* enemy_controller)
-	{
-		dynamic_cast<ICollider*>(enemy_controller)->disableCollision();
-		flagged_enemy_list.push_back(enemy_controller);
-		enemy_list.erase(std::remove(enemy_list.begin(), enemy_list.end(), enemy_controller), enemy_list.end());
-	}
-
-	void EnemyService::destroy()
-	{
-		for (int i = 0; i < enemy_list.size(); i++)
-		{
-			ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<ICollider*>(enemy_list[i]));
-			delete (enemy_list[i]);
-		}
-		enemy_list.clear();
-	}
-
-	void EnemyService::reset()
+	void ElementService::reset()
 	{
 		destroy();
-		spawn_timer = 0.0f;
+		spawnBunkers();
 	}
 }

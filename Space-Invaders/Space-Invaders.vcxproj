@@ -176,6 +176,7 @@
     <ClCompile Include="Source\ServiceLocator.cpp" />
     <ClCompile Include="Source\SoundService.cpp" />
     <ClCompile Include="Source\Powerupconfig.cpp" />
+    <ClCompile Include="Source\SplashScreenUIController.cpp" />
     <ClCompile Include="Source\SubZeroController.cpp" />
     <ClCompile Include="Source\TextView.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="Header\Element\Bumker\BunkerModel.h" />
     <ClInclude Include="Header\Element\Bumker\BunkerView.h" />
     <ClInclude Include="Header\Element\ElementService.h" />
+    <ClInclude Include="Header\Element\ElemetService.h" />
     <ClInclude Include="Header\Enemy\Controller\SubZeroController.h" />
     <ClInclude Include="Header\Enemy\Controller\ZapperController.h" />
     <ClInclude Include="Header\Enemy\EnemConfig.h" />
@@ -230,6 +232,7 @@
     <ClInclude Include="Header\Powerups\PowerupView.h" />
     <ClInclude Include="Header\Projectile\IProjectile.h" />
     <ClInclude Include="Header\Sound\SoundService.h" />
+    <ClInclude Include="Header\Spalash\SplashScreenUIController.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
     <ClInclude Include="Header\ufo\UfoController.h" />
     <ClInclude Include="Header\UI\MainMenuController\MainMenuController.h" />

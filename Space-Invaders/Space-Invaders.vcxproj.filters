@@ -329,5 +329,8 @@
     <ClInclude Include="Header\GameplayUIController\GameplayUIController.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="Header\Element\ElemetService.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
